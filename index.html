@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css"/>
+        <link rel="stylesheet" href="sliderstyle.css"/>
         <title>NEXXIST</title>
     </head>
     <body>
@@ -21,7 +22,57 @@
                     <img class="header-image profile" src="./images/profile-image.png"/>
                 </div>
             </div>
-        </header>
+        </header> 
+        <div class="subheader-container">
+            <div class="subheader-content">
+                <div class="search-results-title">
+                    <p class="search-results-text">Search Results: </p>
+                </div>
+                <div class="adv-settings-section">
+                    <div class="adv-settings-filters">
+                        <label for="amount">Price range:</label> 
+                        <span class="multi-range">
+                            <input type="range" min="0" max="50" value="5" id="lower">
+                            <input type="range" min="0" max="50" value="45" id="upper">
+                        </span>
+                        <label class="filter-label beds-selector">Beds:</label>
+                        <select class="filter-input" id="filter-type">
+                            <option>1+</option> 
+                            <option>2+</option>
+                            <option>3+</option>
+                            <option>4+</option>
+                            <option>5+</option>
+                        </select>
+                        <label class="filter-label">Baths:</label>
+                        <select class="filter-input" id="filter-type">
+                            <option>1+</option> 
+                            <option>2+</option>
+                            <option>3+</option>
+                            <option>4+</option>
+                            <option>5+</option>
+                        </select>
+                        <label class="filter-label">Type:</label>
+                        <select class="filter-input" id="filter-type">
+                            <option>Home</option> 
+                            <option>Condo</option>
+                            <option>Townhouse</option>
+                            <option>Apartment</option>
+                            <option>Multi-Unit</option>
+                        </select>
+                        <label class="filter-label">Sort:</label>
+                        <select class="filter-input" id="select-topping">
+                            <option>Recommended</option>
+                            <option>Price (High to Low)</option>
+                            <option>Price (Low to High)</option>
+                            <option>Listed</option>
+                            <option>Beds</option>
+                            <option>Baths</option>
+                            <option>Square Feet</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div> 
         <script src="scripts.js"></script>
     </body>
 </html>

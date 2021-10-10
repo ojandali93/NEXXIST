@@ -37,6 +37,7 @@
 .profile-favorites-menu {
     width: 90px;
     height: 40px;
+    margin-right: 8px;
 }
 
 .saved {
@@ -51,5 +52,29 @@
     padding: 5px;
     height: 24px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 2px solid grey;
+}
+
+.subheader-container {
+    width: 100%;
+    height: 50px;
+}
+
+.subheader-content {
+    padding-left: 14px;
+    padding-right: 14px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.filter-label {
+    margin-left: 10px;
+}
+
+.beds-selector {
+    margin-left: 160px;
 }
