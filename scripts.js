@@ -181,6 +181,7 @@ function generateProperty(currentProperty) {
     listingContainer.appendChild(status)
     mainDetailsSection.appendChild(mls)
 
+    // the following is the investment metric section of the property
     const metricsContainer = document.createElement('div')
     metricsContainer.className = 'section-container'
 
@@ -251,6 +252,100 @@ function generateProperty(currentProperty) {
     rightColumnMetric.appendChild(crrMetric)
     rightColumnMetric.appendChild(investmentScoreMetric)
 
+    // the follwing is the purchase detail section of the propery section
+    const purchaseContainer = document.createElement('div')
+    purchaseContainer.className = 'section-container'
+
+    const purchaseHeader = document.createElement('p')
+    purchaseHeader.className = 'purchase-details'
+    purchaseHeader.innerHTML = 'Purchase Details: '
+
+    const purchaseSubContainer = document.createElement('div')
+
+    const purchaseLoanAmount = document.createElement('div')
+    purchaseLoanAmount.className = 'purchase-user-input-container'
+    const loanLabel = document.createElement('p')
+    loanLabel.innerHTML = 'Loan $: '
+    const loanInput = document.createElement('input')
+    loanInput.type = 'number'
+    loanInput.placeholder = ''
+
+    const purchaseDownAmount = document.createElement('div')
+    purchaseDownAmount.className = 'purchase-user-input-container'
+    const downLabel = document.createElement('p')
+    downLabel.innerHTML = 'Down Payment $: '
+    const downInput = document.createElement('input')
+    downInput.type = 'number'
+    downInput.placeholder = ''
+
+    const purchaseRateAmount = document.createElement('div')
+    purchaseRateAmount.className = 'ir-years-container'
+    const irLabel = document.createElement('p')
+    irLabel.innerHTML = 'Interest Rate: '
+    const irInput = document.createElement('input')
+    irInput.type = 'number'
+    irInput.placeholder = ''
+    const yearsLabel = document.createElement('p')
+    yearsLabel.innerHTML = 'Years: '
+    const yearsInput = document.createElement('input')
+    yearsInput.type = 'number'
+    yearsInput.placeholder = ''
+    
+    const expensesContainer = document.createElement('p')
+    expensesContainer.className = 'purchase-details'
+    expensesContainer.innerHTML = 'Additional Expenses:'
+
+    const expensesSubContainer = document.createElement('div')
+    expensesSubContainer.className = 'additional-exp-container'
+
+    const rennovationsLabel = document.createElement('p')
+    rennovationsLabel.innerHTML = 'Rennovation Costs: '
+    const rennovationsInput = document.createElement('input')
+    rennovationsInput.type = 'number'
+    rennovationsInput.placeholder = ''
+
+    const additionalLabel = document.createElement('p')
+    additionalLabel.innerHTML = 'Additional Costs: '
+    const additionalInput = document.createElement('input')
+    additionalInput.type = 'number'
+    additionalInput.placeholder = ''
+
+    const rentLabel = document.createElement('p')
+    rentLabel.innerHTML = 'Rent Costs: '
+    const rentInput = document.createElement('input')
+    rentInput.type = 'number'
+    rentInput.placeholder = ''
+    
+    const monthlyLabel = document.createElement('p')
+    monthlyLabel.innerHTML = 'Monthly Costs: '
+    const monthlyInput = document.createElement('input')
+    monthlyInput.type = 'number'
+    monthlyInput.placeholder = ''
+
+    propertyContainer.appendChild(purchaseContainer)
+    purchaseContainer.appendChild(purchaseHeader)
+    purchaseContainer.appendChild(purchaseSubContainer)
+    purchaseSubContainer.appendChild(purchaseLoanAmount)
+    purchaseLoanAmount.appendChild(loanLabel)
+    purchaseLoanAmount.appendChild(loanInput)
+    purchaseSubContainer.appendChild(purchaseDownAmount)
+    purchaseDownAmount.appendChild(downLabel)
+    purchaseDownAmount.appendChild(downInput)
+    purchaseSubContainer.appendChild(purchaseRateAmount)
+    purchaseRateAmount.appendChild(irLabel)
+    purchaseRateAmount.appendChild(irInput)
+    purchaseRateAmount.appendChild(yearsLabel)
+    purchaseRateAmount.appendChild(yearsInput)
+    purchaseContainer.appendChild(expensesContainer)
+    purchaseContainer.appendChild(expensesSubContainer)
+    expensesSubContainer.appendChild(rennovationsLabel)
+    expensesSubContainer.appendChild(rennovationsInput)
+    expensesSubContainer.appendChild(additionalLabel)
+    expensesSubContainer.appendChild(additionalInput)
+    expensesSubContainer.appendChild(rentLabel)
+    expensesSubContainer.appendChild(rentInput)
+    expensesSubContainer.appendChild(monthlyLabel)
+    expensesSubContainer.appendChild(monthlyInput)
 
 }
 
