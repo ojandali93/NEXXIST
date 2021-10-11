@@ -79,30 +79,31 @@
     margin-left: 160px;
 }
 
-.home-container {
+.property-container {
+    margin-top: 12px;
     width: 100%;
     height: 340px;
-    background-color: grey;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom: 2px solid black;
 }
 
 .section-container {
     padding: 10px;
 }
 
-.home-details-image {
+.main-image {
     width: 100%;
 }
 
-.home-details-carousel {
+.image-carousel {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.home-details-c-image {
+.carousel-image {
     width: 24%;
 }
 
@@ -120,7 +121,7 @@
     margin-right: 10px;
 }
 
-.listing-details-container {
+.listing-container {
     display: flex;
     flex-direction: row;
 }
@@ -137,7 +138,6 @@
 .inv-metric-container {
     width: 100%;
     margin-top: 14px;
-    background-color: lightgray;
     display: grid;
     grid-template-columns: 1fr 1fr;
     font-size: 18px;
