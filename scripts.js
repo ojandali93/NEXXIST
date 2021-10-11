@@ -181,6 +181,77 @@ function generateProperty(currentProperty) {
     listingContainer.appendChild(status)
     mainDetailsSection.appendChild(mls)
 
+    const metricsContainer = document.createElement('div')
+    metricsContainer.className = 'section-container'
+
+    const metricsHeader = document.createElement('p')
+    metricsHeader.className = 'investment-header'
+    metricsHeader.innerHTML = `Investment Metrics: `
+
+    const investmentMetricContainer = document.createElement('div')
+    investmentMetricContainer.className = 'inv-metric-container'
+
+    const leftColumnMetrics = document.createElement('div')
+    
+    const noiMetric = document.createElement('p')
+    noiMetric.className = 'inv-metric'
+    noiMetric.innerHTML = `NOI: ###`
+    const crMetric = document.createElement('p')
+    crMetric.className = 'inv-metric'
+    crMetric.innerHTML = `CR: ###`
+    const cfMetric = document.createElement('p')
+    cfMetric.className = 'inv-metric'
+    cfMetric.innerHTML = `CF: ###`
+    const ccrMetric = document.createElement('p')
+    ccrMetric.className = 'inv-metric'
+    ccrMetric.innerHTML = `CRR: ###`
+    const lotMetric = document.createElement('p')
+    lotMetric.className = 'inv-metric'
+    lotMetric.innerHTML = `LOT: ###`
+    const grmMetric = document.createElement('p')
+    grmMetric.className = 'inv-metric'
+    grmMetric.innerHTML = `GRM: ###`
+    
+    const rightColumnMetric = document.createElement('div')
+
+    const roiMetric = document.createElement('p')
+    roiMetric.className = 'inv-metric'
+    roiMetric.innerHTML = `ROI: ###`
+    const mv1Metric = document.createElement('p')
+    mv1Metric.className = 'inv-metric'
+    mv1Metric.innerHTML = `MV1: ###`
+    const mv3Metric = document.createElement('p')
+    mv3Metric.className = 'inv-metric'
+    mv3Metric.innerHTML = `MV3: ###`
+    const occrMetric = document.createElement('p')
+    occrMetric.className = 'inv-metric'
+    occrMetric.innerHTML = `OCC R: ###`
+    const crrMetric = document.createElement('p')
+    crrMetric.className = 'inv-metric'
+    crrMetric.innerHTML = `CP R: ###`
+    const investmentScoreMetric = document.createElement('p')
+    investmentScoreMetric.className = 'inv-metric'
+    investmentScoreMetric.innerHTML = `Inv. Score: ###`
+
+    propertyContainer.appendChild(metricsContainer)
+    metricsContainer.appendChild(metricsHeader)
+    metricsContainer.appendChild(investmentMetricContainer)
+    investmentMetricContainer.appendChild(leftColumnMetrics)
+    leftColumnMetrics.appendChild(noiMetric)
+    leftColumnMetrics.appendChild(crMetric)
+    leftColumnMetrics.appendChild(cfMetric)
+    leftColumnMetrics.appendChild(ccrMetric)
+    leftColumnMetrics.appendChild(lotMetric)
+    leftColumnMetrics.appendChild(grmMetric)
+    investmentMetricContainer.appendChild(rightColumnMetric)
+    rightColumnMetric.appendChild(roiMetric)
+    rightColumnMetric.appendChild(mv1Metric)
+    rightColumnMetric.appendChild(mv3Metric)
+    rightColumnMetric.appendChild(occrMetric)
+    rightColumnMetric.appendChild(crrMetric)
+    rightColumnMetric.appendChild(investmentScoreMetric)
+
+
 }
 
 function generatePropertyList(){
