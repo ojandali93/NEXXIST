@@ -150,7 +150,7 @@
 
 .purchase-user-input-container {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 2fr;
 }
 
 .ir-years-container {
@@ -160,5 +160,5 @@
 
 .additional-exp-container {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 3fr;
 }
