@@ -106,10 +106,10 @@ function generateProperty(currentProperty) {
     propertyContainer.appendChild(mainCarouselSection)
     mainCarouselSection.appendChild(mainImage)
     mainCarouselSection.appendChild(imageCarousel)
-    imageCarousel.appendChild(image1)
-    imageCarousel.appendChild(image2)
-    imageCarousel.appendChild(image3)
-    imageCarousel.appendChild(image4)
+    // imageCarousel.appendChild(image1)
+    // imageCarousel.appendChild(image2)
+    // imageCarousel.appendChild(image3)
+    // imageCarousel.appendChild(image4)
 
     // the following section is going to create the detail section
     const mainDetailsSection = document.createElement('div')
@@ -194,42 +194,54 @@ function generateProperty(currentProperty) {
 
     const leftColumnMetrics = document.createElement('div')
     
-    const noiMetric = document.createElement('p')
-    noiMetric.className = 'inv-metric'
-    noiMetric.innerHTML = `NOI: ###`
-    const crMetric = document.createElement('p')
-    crMetric.className = 'inv-metric'
-    crMetric.innerHTML = `CR: ###`
-    const cfMetric = document.createElement('p')
-    cfMetric.className = 'inv-metric'
-    cfMetric.innerHTML = `CF: ###`
-    const ccrMetric = document.createElement('p')
-    ccrMetric.className = 'inv-metric'
-    ccrMetric.innerHTML = `CRR: ###`
-    const lotMetric = document.createElement('p')
-    lotMetric.className = 'inv-metric'
-    lotMetric.innerHTML = `LOT: ###`
-    const grmMetric = document.createElement('p')
-    grmMetric.className = 'inv-metric'
-    grmMetric.innerHTML = `GRM: ###`
+    const cashFlowMetric = document.createElement('p')
+    cashFlowMetric.className = 'inv-metric'
+    cashFlowMetric.innerHTML = `Cash Flow: ###`
+    const cashOnCashReturn = document.createElement('p')
+    cashOnCashReturn.className = 'inv-metric'
+    cashOnCashReturn.innerHTML = `Cash-Cash Return: ###`
+    const grossOperatingIncome = document.createElement('p')
+    grossOperatingIncome.className = 'inv-metric'
+    grossOperatingIncome.innerHTML = `Gross Operating Income: ###`
+    const operatingExpenseRatioMetric = document.createElement('p')
+    operatingExpenseRatioMetric.className = 'inv-metric'
+    operatingExpenseRatioMetric.innerHTML = `Operating Expnense Ratio: ###`
+    const netOperatingIncomeMetric = document.createElement('p')
+    netOperatingIncomeMetric.className = 'inv-metric'
+    netOperatingIncomeMetric.innerHTML = `Net Operating Income: ###`
+    const capiralizationRateMetric = document.createElement('p')
+    capiralizationRateMetric.className = 'inv-metric'
+    capiralizationRateMetric.innerHTML = `Capitalization Rate: ###`
+    const internalRateOfReturnMetric = document.createElement('p')
+    internalRateOfReturnMetric.className = 'inv-metric'
+    internalRateOfReturnMetric.innerHTML = `Internal Rate of Return: ###`
+    const rentControlRatioMetric = document.createElement('p')
+    rentControlRatioMetric.className = 'inv-metric'
+    rentControlRatioMetric.innerHTML = `Rent/Cost Ratio: ###`
     
     const rightColumnMetric = document.createElement('div')
 
-    const roiMetric = document.createElement('p')
-    roiMetric.className = 'inv-metric'
-    roiMetric.innerHTML = `ROI: ###`
+    const grossRentMultiplierMetric = document.createElement('p')
+    grossRentMultiplierMetric.className = 'inv-metric'
+    grossRentMultiplierMetric.innerHTML = `Gross Rent Multiplier: ###`
     const mv1Metric = document.createElement('p')
     mv1Metric.className = 'inv-metric'
-    mv1Metric.innerHTML = `MV1: ###`
+    mv1Metric.innerHTML = `Market Value (1 Year): ###`
     const mv3Metric = document.createElement('p')
     mv3Metric.className = 'inv-metric'
-    mv3Metric.innerHTML = `MV3: ###`
-    const occrMetric = document.createElement('p')
-    occrMetric.className = 'inv-metric'
-    occrMetric.innerHTML = `OCC R: ###`
-    const crrMetric = document.createElement('p')
-    crrMetric.className = 'inv-metric'
-    crrMetric.innerHTML = `CP R: ###`
+    mv3Metric.innerHTML = `Market Value (3 Year): ###`
+    const vacacyRateMetric = document.createElement('p')
+    vacacyRateMetric.className = 'inv-metric'
+    vacacyRateMetric.innerHTML = `Vacancy Rate: ###`
+    const debtServieCoverageaRatioMetric = document.createElement('p')
+    debtServieCoverageaRatioMetric.className = 'inv-metric'
+    debtServieCoverageaRatioMetric.innerHTML = `Debt Service Coverage Ratio: ###`
+    const depreciationMetric = document.createElement('p')
+    depreciationMetric.className = 'inv-metric'
+    depreciationMetric.innerHTML = `Depreciation (year): ###`
+    const airbnbMetric = document.createElement('p')
+    airbnbMetric.className = 'inv-metric'
+    airbnbMetric.innerHTML = `Airbnb Rate: ###`
     const investmentScoreMetric = document.createElement('p')
     investmentScoreMetric.className = 'inv-metric'
     investmentScoreMetric.innerHTML = `Inv. Score: ###`
@@ -238,18 +250,22 @@ function generateProperty(currentProperty) {
     metricsContainer.appendChild(metricsHeader)
     metricsContainer.appendChild(investmentMetricContainer)
     investmentMetricContainer.appendChild(leftColumnMetrics)
-    leftColumnMetrics.appendChild(noiMetric)
-    leftColumnMetrics.appendChild(crMetric)
-    leftColumnMetrics.appendChild(cfMetric)
-    leftColumnMetrics.appendChild(ccrMetric)
-    leftColumnMetrics.appendChild(lotMetric)
-    leftColumnMetrics.appendChild(grmMetric)
+    leftColumnMetrics.appendChild(cashFlowMetric)
+    leftColumnMetrics.appendChild(cashOnCashReturn)
+    leftColumnMetrics.appendChild(grossOperatingIncome)
+    leftColumnMetrics.appendChild(operatingExpenseRatioMetric)
+    leftColumnMetrics.appendChild(netOperatingIncomeMetric)
+    leftColumnMetrics.appendChild(capiralizationRateMetric)
+    leftColumnMetrics.appendChild(internalRateOfReturnMetric)
+    leftColumnMetrics.appendChild(rentControlRatioMetric)
     investmentMetricContainer.appendChild(rightColumnMetric)
-    rightColumnMetric.appendChild(roiMetric)
+    rightColumnMetric.appendChild(grossRentMultiplierMetric)
+    rightColumnMetric.appendChild(vacacyRateMetric)
+    rightColumnMetric.appendChild(debtServieCoverageaRatioMetric)
+    rightColumnMetric.appendChild(depreciationMetric)
     rightColumnMetric.appendChild(mv1Metric)
     rightColumnMetric.appendChild(mv3Metric)
-    rightColumnMetric.appendChild(occrMetric)
-    rightColumnMetric.appendChild(crrMetric)
+    rightColumnMetric.appendChild(airbnbMetric)
     rightColumnMetric.appendChild(investmentScoreMetric)
 
     // the follwing is the purchase detail section of the propery section
@@ -261,6 +277,14 @@ function generateProperty(currentProperty) {
     purchaseHeader.innerHTML = 'Purchase Details: '
 
     const purchaseSubContainer = document.createElement('div')
+
+    const purchaseCashAmount = document.createElement('div')
+    purchaseCashAmount.className = 'purchase-user-input-container'
+    const cashLabel = document.createElement('p')
+    cashLabel.innerHTML = 'Cash $: '
+    const cashInput = document.createElement('input')
+    cashInput.type = 'number'
+    cashInput.placeholder = ''
 
     const purchaseLoanAmount = document.createElement('div')
     purchaseLoanAmount.className = 'purchase-user-input-container'
@@ -325,6 +349,9 @@ function generateProperty(currentProperty) {
     propertyContainer.appendChild(purchaseContainer)
     purchaseContainer.appendChild(purchaseHeader)
     purchaseContainer.appendChild(purchaseSubContainer)
+    purchaseSubContainer.appendChild(purchaseLoanAmount)
+    purchaseLoanAmount.appendChild(cashLabel)
+    purchaseLoanAmount.appendChild(cashInput)
     purchaseSubContainer.appendChild(purchaseLoanAmount)
     purchaseLoanAmount.appendChild(loanLabel)
     purchaseLoanAmount.appendChild(loanInput)
