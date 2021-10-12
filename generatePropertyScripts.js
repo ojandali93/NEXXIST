@@ -71,12 +71,12 @@ function generateHomeDetails(){
 
     // This div is going to contain the property detail information
     const propertyDetailContainer = document.createElement('div')
-    propertyDetailContainer.classname = 'property-details-container'
+    propertyDetailContainer.className = 'property-details-container'
     propertyDetailContainer.id = 'property-details-container'
 
     // This containes the home property image
     const imageContainer = document.createElement('div')
-    imageContainer.classname = 'image-container'
+    imageContainer.className = 'image-container'
     imageContainer.id = 'image-container'
 
     const mainImage = document.createElement('img')
@@ -203,7 +203,7 @@ function generateExpensesBreakdown(){
     // this is going to contain all of the information related
     // to the mayments and stuff
     const propertyPaymentsContainer = document.createElement('div')
-    propertyPaymentsContainer.classname = 'property-payment-container'
+    propertyPaymentsContainer.className = 'property-payment-container'
     propertyPaymentsContainer.id = 'property-payment-container'
 
     // this ection will hold all of the monthly expenses
@@ -443,67 +443,6 @@ function generateExpensesBreakdown(){
     totalMortgageInput.className = 'total-mortgage-input'
     totalMortgageInput.id = 'total-mortgage-input'
     totalMortgageInput.innerHTML = '$$$'
-    //------------------------------------------------------
-
-    // the follwing contains the rent and revenue
-    const rentRevenueContainer = document.createElement('div')
-    rentRevenueContainer.className = 'rent-container'
-    rentRevenueContainer.id = 'rent-container'
-
-    const rentRevenueHeader = document.createElement('p')
-    rentRevenueHeader.className = 'rent-revenue-header'
-    rentRevenueHeader.id = 'rent-revenue-header'
-
-    const rentRevueBreak = document.createElement('div')
-    rentRevueBreak.className = 'header-break'
-    rentRevueBreak.id = 'header-break'
-
-    // the following is going to contain the rent
-    const rentContainer = document.createElement('div')
-    rentContainer.className = 'rent-container'
-    rentContainer.id = 'rent-container'
-
-    const rentTitle = document.createElement('p')
-    rentTitle.className = 'rent-title'
-    rentTitle.id = 'rent-title'
-    rentTitle.innerHTML = 'Rent: '
-
-    const rentInput = document.createElement('input')
-    rentInput.className = 'rent-input'
-    rentInput.id = 'rent-input'
-    rentInput.type = 'number'
-    rentInput.placeholder = '$' 
-
-    // the follwoing contains the revenue information
-    const revenueContainer = document.createElement('div')
-    revenueContainer.className = 'revenue-container'
-    revenueContainer.id = 'revenue-container'
-
-    const revenueTitle = document.createElement('p')
-    revenueTitle.className = 'revenue-title'
-    revenueTitle.id = 'revenue-title'
-    revenueTitle.innerHTML = 'Revenue: '
-
-    const revenueInput = document.createElement('input')
-    revenueInput.className = 'revenue-input'
-    revenueInput.id = 'revenue-input'
-    revenueInput.type = 'number'
-    revenueInput.placeholder = '$'
-
-    // the followings contains the total revenue
-    const totalRevenueContainer = document.createElement('div')
-    totalRevenueContainer.className = 'total-revenue-container'
-    totalRevenueContainer.id = 'total-revenue-container'
-
-    const totalRevenueTitle = document.createElement('p')
-    totalRevenueTitle.className = 'total-revenue-title'
-    totalRevenueTitle.id = 'total-revenue-title'
-    totalRevenueTitle.innerHTML = 'Total Revenue: '
-
-    const totalRevenueInput = document.createElement('p')
-    totalRevenueInput.className = 'total-revenue-input'
-    totalRevenueInput.id = 'total-revenue-input'
-    totalRevenueInput.innerHTML = '$$$'
 
     propertyContainer.appendChild(propertyPaymentsContainer)
 
@@ -574,8 +513,70 @@ function generateExpensesBreakdown(){
     mortgageCalculatorContainer.appendChild(totalMortgageContainer)
     totalMortgageContainer.appendChild(totalMortgageTitle)
     totalMortgageContainer.appendChild(totalMortgageInput)
+}
 
-    mortgageRentContainer.appendChild(rentRevenueContainer)
+function generateRevenueContainer(){
+    const rentRevenueContainer = document.createElement('div')
+    rentRevenueContainer.className = 'rent-container'
+    rentRevenueContainer.id = 'rent-container'
+
+    const rentRevenueHeader = document.createElement('p')
+    rentRevenueHeader.className = 'rent-revenue-header'
+    rentRevenueHeader.id = 'rent-revenue-header'
+    rentRevenueHeader.innerHTML = 'Monthly Revenue:'
+
+    const rentRevueBreak = document.createElement('div')
+    rentRevueBreak.className = 'header-break'
+    rentRevueBreak.id = 'header-break'
+
+    // the following is going to contain the rent
+    const rentContainer = document.createElement('div')
+    rentContainer.className = 'rent-container'
+    rentContainer.id = 'rent-container'
+
+    const rentTitle = document.createElement('p')
+    rentTitle.className = 'rent-title'
+    rentTitle.id = 'rent-title'
+    rentTitle.innerHTML = 'Rent: '
+
+    const rentInput = document.createElement('input')
+    rentInput.className = 'rent-input'
+    rentInput.id = 'rent-input'
+    rentInput.type = 'number'
+    rentInput.placeholder = '$' 
+
+    // the follwoing contains the revenue information
+    const revenueContainer = document.createElement('div')
+    revenueContainer.className = 'revenue-container'
+    revenueContainer.id = 'revenue-container'
+
+    const revenueTitle = document.createElement('p')
+    revenueTitle.className = 'revenue-title'
+    revenueTitle.id = 'revenue-title'
+    revenueTitle.innerHTML = 'Revenue: '
+
+    const revenueInput = document.createElement('input')
+    revenueInput.className = 'revenue-input'
+    revenueInput.id = 'revenue-input'
+    revenueInput.type = 'number'
+    revenueInput.placeholder = '$'
+
+    // the followings contains the total revenue
+    const totalRevenueContainer = document.createElement('div')
+    totalRevenueContainer.className = 'total-revenue-container'
+    totalRevenueContainer.id = 'total-revenue-container'
+
+    const totalRevenueTitle = document.createElement('p')
+    totalRevenueTitle.className = 'total-revenue-title'
+    totalRevenueTitle.id = 'total-revenue-title'
+    totalRevenueTitle.innerHTML = 'Total Revenue: '
+
+    const totalRevenueInput = document.createElement('p')
+    totalRevenueInput.className = 'total-revenue-input'
+    totalRevenueInput.id = 'total-revenue-input'
+    totalRevenueInput.innerHTML = '$$$'
+
+    propertyContainer.appendChild(rentRevenueContainer)
     rentRevenueContainer.appendChild(rentRevenueHeader)
     rentRevenueContainer.appendChild(rentRevueBreak)
 
@@ -590,12 +591,12 @@ function generateExpensesBreakdown(){
     rentRevenueContainer.appendChild(totalRevenueContainer)
     totalRevenueContainer.appendChild(totalRevenueTitle)
     totalRevenueContainer.appendChild(totalRevenueInput)
-
 }
 
 function generateProperty(){
     generateHomeDetails()
     generateExpensesBreakdown()
+    generateRevenueContainer()
 }
 
 generateProperty()

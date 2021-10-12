@@ -177,3 +177,32 @@
 .home-broker {
     margin-right: 14px;
 }
+
+.property-payment-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid black;
+}
+
+.monthly-expenses-container {
+    border: 1px solid black;
+}
+
+.header-break {
+    width: 100%;
+    height: 2px;
+    background-color: grey;
+}
+
+.mortgage-rent-container {
+    border: 1px solid black;
+}
+
+.mortgage-calculator-container {
+    border: 1px solid black;
+}
+
+.rent-container {
+    border: 1px solid black;
+}
