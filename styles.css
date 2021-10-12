@@ -78,47 +78,78 @@
 .beds-selector {
     margin-left: 160px;
 }
-/* 
-.property-container {
-    margin-top: 12px;
-    width: 100%;
-    height: 340px;
+
+.content-container {
+    height: 600px;
+    padding: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 1fr;
-    border-bottom: 2px solid black;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 1px solid black;
 }
 
-.section-container {
+.property-container {
+    display: flex;
     padding: 10px;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.property-details-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.image-container {
 }
 
 .main-image {
     width: 100%;
 }
 
-.image-carousel {
+.details-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.carousel-image {
-    width: 24%;
 }
 
 .home-price {
-    font-size: 24px;
-    font-weight: bold;
+    margin-right: 14px;
 }
 
-.bed-bath-sqft-lot-container {
+.home-price {
+    margin-right: 14px;
+}
+
+.bed-bath-sqfr-lot-container {
     display: flex;
     flex-direction: row;
 }
 
-.home-detail-bbsl {
-    margin-right: 10px;
+.home-beds {
+    margin-right: 14px;
+}
+
+.home-baths {
+    margin-right: 14px;
+}
+
+.home-sqft {
+    margin-right: 14px;
+}
+
+.home-lot {
+    margin-right: 14px;
+}
+
+.address-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.home-address-1 {
+    margin-right: 14px;
 }
 
 .listing-container {
@@ -126,39 +157,23 @@
     flex-direction: row;
 }
 
-.listing-detail {
-    margin-right: 10px;
+.home-days-listed {
+    margin-right: 14px;
 }
 
-.investment-header {
-    font-size: 22px;
-    font-weight: bold;
+.home-mls {
+    margin-right: 14px;
 }
 
-.inv-metric-container {
-    width: 100%;
-    margin-top: 14px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-size: 18px;
+.agent-broker-container {
+    display: flex;
+    flex-direction: row;
 }
 
-.purchase-details {
-    font-size: 18px;
-    font-weight: bold;
+.home-agent {
+    margin-right: 14px;
 }
 
-.purchase-user-input-container {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
+.home-broker {
+    margin-right: 14px;
 }
-
-.ir-years-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.additional-exp-container {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-} */
