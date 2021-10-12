@@ -108,6 +108,7 @@
 }
 
 .details-container {
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
 }
@@ -177,6 +178,7 @@
 }
 
 .property-payment-container {
+    margin-top: 15px;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -198,9 +200,11 @@
 }
 
 .rent-container {
+    margin-top: 15px;
 }
 
 .investment-metric-container {
+    margin-top: 15px;
 }
 
 .metric-section-container {

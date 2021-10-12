@@ -242,12 +242,12 @@ function generateExpensesBreakdown(propertyContainer){
     const principleAndInterestTitle = document.createElement('p')
     principleAndInterestTitle.className = 'princliple-and-expenses-title'
     principleAndInterestTitle.id = 'princliple-and-expenses-title'
-    principleAndInterestTitle.innerText = 'Principle & Interest: '
+    principleAndInterestTitle.innerHTML = 'Principle & Interest: '
 
     const principleAndInterestValue = document.createElement('p')
     principleAndInterestValue.className = 'princliple-and-expenses-value'
     principleAndInterestValue.id = 'princliple-and-expenses-value'
-    principleAndInterestTitle.innerText = '#####'
+    principleAndInterestValue.innerText = '#####'
 
     // the following div hold the property tax
     const propertyTaxContainer = document.createElement('div')
@@ -485,10 +485,6 @@ function generateExpensesBreakdown(propertyContainer){
     mortgageInsuranceContainer.appendChild(mortgageInsuranceTitle)
     mortgageInsuranceContainer.appendChild(mortgageInsuranceValue)
 
-    expensesContainer.appendChild(additionalCostContainer)
-    additionalCostContainer.appendChild(additionalCostTitle)
-    additionalCostContainer.appendChild(additionalCostValue)
-
     expensesContainer.appendChild(totalExpensesContainer)
     totalExpensesContainer.appendChild(totalExpensesTitle)
     totalExpensesContainer.appendChild(totalExpensesInput)
@@ -497,7 +493,6 @@ function generateExpensesBreakdown(propertyContainer){
     propertyPaymentsContainer.appendChild(mortgageRentContainer)
 
     mortgageRentContainer.appendChild(mortgageCalculatorContainer)
-    mortgageCalculatorContainer.appendChild(mortgageBreak)
     mortgageCalculatorContainer.appendChild(mortgageBreak)
 
     mortgageCalculatorContainer.appendChild(loanAmountContainer)
@@ -520,9 +515,9 @@ function generateExpensesBreakdown(propertyContainer){
     interestRateContainer.appendChild(interestRateTitle)
     interestRateContainer.appendChild(interestRateInput)
 
-    mortgageCalculatorContainer.appendChild(totalMortgageContainer)
-    totalMortgageContainer.appendChild(totalMortgageTitle)
-    totalMortgageContainer.appendChild(totalMortgageInput)
+    mortgageCalculatorContainer.appendChild(additionalCostContainer)
+    additionalCostContainer.appendChild(additionalCostTitle)
+    additionalCostContainer.appendChild(additionalCostValue)
 }
 
 function generateRevenueContainer(propertyContainer){
