@@ -321,7 +321,7 @@ function generateExpensesBreakdown(propertyContainer){
 
     const additionalCostValue = document.createElement('input')
     additionalCostValue.className = 'additional-cost-value'
-    additionalCostValue.id = 'mortgage-insurance-value'
+    additionalCostValue.id = 'additional-cost-value'
     additionalCostValue.type = 'number'
     additionalCostValue.placeholder = 'cost $'
 
