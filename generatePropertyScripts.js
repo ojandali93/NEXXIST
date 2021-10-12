@@ -67,7 +67,19 @@ const propertyContainer = document.createElement('div')
 propertyContainer.className = 'property-container'
 propertyContainer.id = 'property-container'
 
-function generateHomeDetails(){
+function addNewHome(){
+    const propertyContainer = document.createElement('div')
+    propertyContainer.className = 'property-container'
+    propertyContainer.id = 'property-container'
+
+    contentContainer.appendChild(propertyContainer)
+    generateHomeDetails(propertyContainer)
+    generateExpensesBreakdown(propertyContainer)
+    generateRevenueContainer(propertyContainer)
+    generateInvestmentMetrics(propertyContainer)
+}
+
+function generateHomeDetails(propertyContainer){
 
     // This div is going to contain the property detail information
     const propertyDetailContainer = document.createElement('div')
@@ -170,8 +182,6 @@ function generateHomeDetails(){
     homeBroker.id = 'home-broker'
     homeBroker.innerHTML = 'Broker: '
 
-    contentContainer.appendChild(propertyContainer)
-
     propertyContainer.appendChild(propertyDetailContainer)
 
     propertyDetailContainer.appendChild(imageContainer)
@@ -199,7 +209,7 @@ function generateHomeDetails(){
     agentBrokerContainer.appendChild(homeBroker)
 }
 
-function generateExpensesBreakdown(){
+function generateExpensesBreakdown(propertyContainer){
     // this is going to contain all of the information related
     // to the mayments and stuff
     const propertyPaymentsContainer = document.createElement('div')
@@ -515,7 +525,7 @@ function generateExpensesBreakdown(){
     totalMortgageContainer.appendChild(totalMortgageInput)
 }
 
-function generateRevenueContainer(){
+function generateRevenueContainer(propertyContainer){
     const rentRevenueContainer = document.createElement('div')
     rentRevenueContainer.className = 'rent-container'
     rentRevenueContainer.id = 'rent-container'
@@ -593,10 +603,353 @@ function generateRevenueContainer(){
     totalRevenueContainer.appendChild(totalRevenueInput)
 }
 
+function generateInvestmentMetrics(propertyContainer){
+
+    const investmentMetricsContainer = document.createElement('div')
+    investmentMetricsContainer.className = 'investment-metric-container'
+    investmentMetricsContainer.id = 'investment-metric-container'
+
+    const metricHeader = document.createElement('p')
+    metricHeader.className = 'section-header'
+    metricHeader.id = 'section-header' 
+    metricHeader.innerHTML = 'Investment Metrics: '
+    
+    const metricsBreak = document.createElement('div')
+    metricsBreak.className = 'header-break'
+    metricsBreak.id = 'header-break'
+
+    // the following div will contain the grid divs
+    const metricsSectionContainer = document.createElement('div')
+    metricsSectionContainer.className = 'metric-section-container'
+    metricsSectionContainer.id = 'metric-section-container'
+
+    const metricsLeftContainer = document.createElement('div')
+    metricsLeftContainer.className = 'metric-left-container'
+    metricsLeftContainer.id = 'metric-left-container'
+
+    // The following are all of the doc containers for the 7 
+    // metrics that will be on the left column
+    const cashFlowContainer = document.createElement('div')
+    cashFlowContainer.className = 'cash-flow-container'
+    cashFlowContainer.id = 'cash-flow-container'
+
+    const cashFlowTitle = document.createElement('p')
+    cashFlowTitle.className = 'cash-flow-title'
+    cashFlowTitle.id = 'cash-flow-title'
+    cashFlowTitle.innerHTML = 'Cash Flow: '
+
+    const cashFlowValue = document.createElement('p')
+    cashFlowValue.className = 'cash-flow-value'
+    cashFlowValue.id = 'cash-flow-value'
+    cashFlowValue.innerHTML = '$$$'
+
+    // the following contains the cash on cash
+    const cashOnCashContainer = document.createElement('div')
+    cashOnCashContainer.className = 'cash-on-cash-container'
+    cashOnCashContainer.id = 'cash-on-cash-container'
+
+    const cashOnCashTitle = document.createElement('p')
+    cashOnCashTitle.className = 'cash-on-cash-title'
+    cashOnCashTitle.id = 'cash-on-cash-title'
+    cashOnCashTitle.innerHTML = 'Cash On Cash Flow: '
+
+    const cashOnCashValue = document.createElement('p')
+    cashOnCashValue.className = 'cash-on-cash-value'
+    cashOnCashValue.id = 'cash-on-cash-value'
+    cashOnCashValue.innerHTML = '$$$'
+
+    // the following contains the gross operating income
+    const grossOperatingIncomeContainer = document.createElement('div')
+    grossOperatingIncomeContainer.className = 'gross-operating-income-container'
+    grossOperatingIncomeContainer.id = 'gross-operating-income-container'
+
+    const grossOperatingIncomeTitle = document.createElement('p')
+    grossOperatingIncomeTitle.className = 'gross-operating-income-title'
+    grossOperatingIncomeTitle.id = 'gross-operating-income-title'
+    grossOperatingIncomeTitle.innerHTML = 'Gross Operating Income: '
+
+    const grossOperatingIncomeValue = document.createElement('p')
+    grossOperatingIncomeValue.className = 'gross-operating-income-value'
+    grossOperatingIncomeValue.id = 'gross-operating-income-value'
+    grossOperatingIncomeValue.innerHTML = '$$$'
+
+    // the following contains the net operating income
+    const netOperatingIncomeContainer = document.createElement('div')
+    netOperatingIncomeContainer.className = 'net-operating-income-container'
+    netOperatingIncomeContainer.id = 'net-operating-income-container'
+
+    const netOperatingIncomeTitle = document.createElement('p')
+    netOperatingIncomeTitle.className = 'net-operating-income-title'
+    netOperatingIncomeTitle.id = 'net-operating-income-title'
+    netOperatingIncomeTitle.innerHTML = 'Net Operating Income: '
+
+    const netOperatingIncomeValue = document.createElement('p')
+    netOperatingIncomeValue.className = 'net-operating-income-value'
+    netOperatingIncomeValue.id = 'net-operating-income-value'
+    netOperatingIncomeValue.innerHTML = '$$$'
+
+    // the following contains the net operating income
+    const capitalizationRateContainer = document.createElement('div')
+    capitalizationRateContainer.className = 'capitalization-rate-container'
+    capitalizationRateContainer.id = 'capitalization-rate-container'
+
+    const capitalizationRateTitle = document.createElement('p')
+    capitalizationRateTitle.className = 'capitalization-rate-title'
+    capitalizationRateTitle.id = 'capitalization-rate-title'
+    capitalizationRateTitle.innerHTML = 'Capitalization Rate: '
+
+    const capitalizationRateValue = document.createElement('p')
+    capitalizationRateValue.className = 'capitalization-rate-value'
+    capitalizationRateValue.id = 'capitalization-rate-value'
+    capitalizationRateValue.innerHTML = '$$$'
+
+    // the following contains the net operating income
+    const internalRateRevenueContainer = document.createElement('div')
+    internalRateRevenueContainer.className = 'internal-rate-return-container'
+    internalRateRevenueContainer.id = 'internal-rate-return-container'
+
+    const internalRateRevenueTitle = document.createElement('p')
+    internalRateRevenueTitle.className = 'internal-rate-return-title'
+    internalRateRevenueTitle.id = 'internal-rate-return-title'
+    internalRateRevenueTitle.innerHTML = 'Internal Rate of Return: '
+
+    const internalRateRevenueValue = document.createElement('p')
+    internalRateRevenueValue.className = 'internal-rate-return-value'
+    internalRateRevenueValue.id = 'internal-rate-return-value'
+    internalRateRevenueValue.innerHTML = '$$$'
+
+    // the following contains the net operating income
+    const investmentScoreContainer = document.createElement('div')
+    investmentScoreContainer.className = 'investment-score-container'
+    investmentScoreContainer.id = 'investment-score-container'
+
+    const investmentScoreTitle = document.createElement('p')
+    investmentScoreTitle.className = 'investment-score-title'
+    investmentScoreTitle.id = 'investment-score-title'
+    investmentScoreTitle.innerHTML = 'Investment Score: '
+
+    const investmentScoreValue = document.createElement('p')
+    investmentScoreValue.className = 'investment-score-value'
+    investmentScoreValue.id = 'investment-score-value'
+    investmentScoreValue.innerHTML = '$$$'
+
+    //---------------------------------------------------------------------
+    const metricsRightContainer = document.createElement('div')
+    metricsRightContainer.className = 'metric-right-container'
+    metricsRightContainer.id = 'metric-right-container'
+
+    // the following contains the net operating income
+    const rentCostRatioContainer = document.createElement('div')
+    rentCostRatioContainer.className = 'rent-cost-ratio-container'
+    rentCostRatioContainer.id = 'rent-cost-ratio-container'
+
+    const rentCostRatioTitle = document.createElement('p')
+    rentCostRatioTitle.className = 'rent-cost-ratio-title'
+    rentCostRatioTitle.id = 'rent-cost-ratio-title'
+    rentCostRatioTitle.innerHTML = 'Rent Cost Ratio: '
+
+    const rentCostRatioValue = document.createElement('p')
+    rentCostRatioValue.className = 'rent-cost-ratio-value'
+    rentCostRatioValue.id = 'rent-cost-ratio-value'
+    rentCostRatioValue.innerHTML = '$$$'
+
+    // The following are all of the doc containers for the 7 
+    // metrics that will be on the left column
+    const grossRentMultiplierContainer = document.createElement('div')
+    grossRentMultiplierContainer.className = 'gross-rent-multiplier-container'
+    grossRentMultiplierContainer.id = 'gross-rent-multiplier-container'
+
+    const grossRentMultiplierTitle = document.createElement('p')
+    grossRentMultiplierTitle.className = 'gross-rent-multiplier-title'
+    grossRentMultiplierTitle.id = 'gross-rent-multiplier-title'
+    grossRentMultiplierTitle.innerHTML = 'Gross Rent Multiplier: '
+
+    const grossRentMultiplierValue = document.createElement('p')
+    grossRentMultiplierValue.className = 'gross-rent-multiplier-value'
+    grossRentMultiplierValue.id = 'gross-rent-multiplier-value'
+    grossRentMultiplierValue.innerHTML = '$$$'
+
+    // the following contains the cash on cash
+    const vacancyRateContainer = document.createElement('div')
+    vacancyRateContainer.className = 'vacancy-rate-container'
+    vacancyRateContainer.id = 'vacancy-rate-container'
+
+    const vacancyRateTitle = document.createElement('p')
+    vacancyRateTitle.className = 'vacancy-rate-title'
+    vacancyRateTitle.id = 'vacancy-rate-title'
+    vacancyRateTitle.innerHTML = 'Vacancy Rate: '
+
+    const vacancyRateValue = document.createElement('p')
+    vacancyRateValue.className = 'vacancy-rate-value'
+    vacancyRateValue.id = 'vacancy-rate-value'
+    vacancyRateValue.innerHTML = '$$$'
+
+    // the following contains the gross operating income
+    const depreciationContainer = document.createElement('div')
+    depreciationContainer.className = 'depreciation-container'
+    depreciationContainer.id = 'depreciation-container'
+
+    const depreciationTitle = document.createElement('p')
+    depreciationTitle.className = 'depreciation-title'
+    depreciationTitle.id = 'depreciation-title'
+    depreciationTitle.innerHTML = 'Depreciation: '
+
+    const depreciationValue = document.createElement('p')
+    depreciationValue.className = 'depreciation-value'
+    depreciationValue.id = 'depreciation-value'
+    depreciationValue.innerHTML = '$$$'
+
+    // the following contains the net operating income
+    const marketValue1Container = document.createElement('div')
+    marketValue1Container.className = 'market-value-1-container'
+    marketValue1Container.id = 'market-value-1-container'
+
+    const marketValue1Title = document.createElement('p')
+    marketValue1Title.className = 'market-value-1-title'
+    marketValue1Title.id = 'market-value-1-title'
+    marketValue1Title.innerHTML = 'Market Value (1 year): '
+
+    const marketValue1Value = document.createElement('p')
+    marketValue1Value.className = 'market-value-1-value'
+    marketValue1Value.id = 'market-value-1-value'
+    marketValue1Value.innerHTML = '$$$'
+
+    // the following contains the net operating income
+    const marketValue2Container = document.createElement('div')
+    marketValue2Container.className = 'market-value-2-container'
+    marketValue2Container.id = 'market-value-2-container'
+
+    const marketValue2Title = document.createElement('p')
+    marketValue2Title.className = 'market-value-2-title'
+    marketValue2Title.id = 'market-value-2-title'
+    marketValue2Title.innerHTML = 'Market Value (2 year): '
+
+    const marketValue2Value = document.createElement('p')
+    marketValue2Value.className = 'market-value-2-value'
+    marketValue2Value.id = 'market-value-2-value'
+    marketValue2Value.innerHTML = '$$$'
+
+    // the following contains the net operating income
+    const airbnbContainer = document.createElement('div')
+    airbnbContainer.className = 'airbnb-container'
+    airbnbContainer.id = 'airbnb-container'
+
+    const airbnbTitle = document.createElement('p')
+    airbnbTitle.className = 'airbnb-title'
+    airbnbTitle.id = 'airbnb-title'
+    airbnbTitle.innerHTML = 'Airbnb Score: '
+
+    const airbnbValue = document.createElement('p')
+    airbnbValue.className = 'airbnb-value'
+    airbnbValue.id = 'airbnb-value'
+    airbnbValue.innerHTML = '$$$'
+
+    // // the following contains the net operating income
+    // const rentCostRatioContainer = document.createElement('div')
+    // rentCostRatioContainer.className = 'rent-cost-ratio-container'
+    // rentCostRatioContainer.id = 'rent-cost-ratio-container'
+
+    // const rentCostRatioTitle = document.createElement('p')
+    // rentCostRatioTitle.className = 'rent-cost-ratio-title'
+    // rentCostRatioTitle.id = 'rent-cost-ratio-title'
+    // rentCostRatioTitle.innerHTML = 'Rent Cost Ratio: '
+
+    // const rentCostRatioValue = document.createElement('p')
+    // rentCostRatioValue.className = 'rent-cost-ratio-value'
+    // rentCostRatioValue.id = 'rent-cost-ratio-value'
+    // rentCostRatioValue.innerHTML = '$$$'
+
+    // // the following contains the net operating income
+    // const investmentScoreContainer = document.createElement('div')
+    // investmentScoreContainer.className = 'investment-score-container'
+    // investmentScoreContainer.id = 'investment-score-container'
+
+    // const investmentScoreTitle = document.createElement('p')
+    // investmentScoreTitle.className = 'investment-score-title'
+    // investmentScoreTitle.id = 'investment-score-title'
+    // investmentScoreTitle.innerHTML = 'Investment Score: '
+
+    // const investmentScoreValue = document.createElement('p')
+    // investmentScoreValue.className = 'investment-score-value'
+    // investmentScoreValue.id = 'investment-score-value'
+    // investmentScoreValue.innerHTML = '$$$'
+
+    propertyContainer.appendChild(investmentMetricsContainer)
+
+    investmentMetricsContainer.appendChild(metricHeader)
+    investmentMetricsContainer.appendChild(metricsBreak)
+    investmentMetricsContainer.appendChild(metricsSectionContainer)
+
+    metricsSectionContainer.appendChild(metricsLeftContainer)
+
+    metricsLeftContainer.appendChild(cashFlowContainer)
+    cashFlowContainer.appendChild(cashFlowTitle)
+    cashFlowContainer.appendChild(cashFlowValue)
+
+    metricsLeftContainer.appendChild(cashOnCashContainer)
+    cashOnCashContainer.appendChild(cashOnCashTitle)
+    cashOnCashContainer.appendChild(cashOnCashValue)
+
+    metricsLeftContainer.appendChild(grossOperatingIncomeContainer)
+    grossOperatingIncomeContainer.appendChild(grossOperatingIncomeTitle)
+    grossOperatingIncomeContainer.appendChild(grossOperatingIncomeValue)
+
+    metricsLeftContainer.appendChild(netOperatingIncomeContainer)
+    netOperatingIncomeContainer.appendChild(netOperatingIncomeTitle)
+    netOperatingIncomeContainer.appendChild(netOperatingIncomeValue)
+
+    metricsLeftContainer.appendChild(capitalizationRateContainer)
+    capitalizationRateContainer.appendChild(capitalizationRateTitle)
+    capitalizationRateContainer.appendChild(capitalizationRateValue)
+
+    metricsLeftContainer.appendChild(internalRateRevenueContainer)
+    internalRateRevenueContainer.appendChild(internalRateRevenueTitle)
+    internalRateRevenueContainer.appendChild(internalRateRevenueValue)
+
+    metricsLeftContainer.appendChild(investmentScoreContainer)
+    investmentScoreContainer.appendChild(investmentScoreTitle)
+    investmentScoreContainer.appendChild(investmentScoreValue)
+
+    metricsSectionContainer.appendChild(metricsRightContainer)
+
+    metricsRightContainer.appendChild(rentCostRatioContainer)
+    rentCostRatioContainer.appendChild(rentCostRatioTitle)
+    rentCostRatioContainer.appendChild(rentCostRatioValue)
+
+    metricsRightContainer.appendChild(grossRentMultiplierContainer)
+    grossRentMultiplierContainer.appendChild(grossRentMultiplierTitle)
+    grossRentMultiplierContainer.appendChild(grossRentMultiplierValue)
+
+    metricsRightContainer.appendChild(vacancyRateContainer)
+    vacancyRateContainer.appendChild(vacancyRateTitle)
+    vacancyRateContainer.appendChild(vacancyRateValue)
+
+    metricsRightContainer.appendChild(depreciationContainer)
+    depreciationContainer.appendChild(depreciationTitle)
+    depreciationContainer.appendChild(depreciationValue)
+
+    metricsRightContainer.appendChild(marketValue1Container)
+    marketValue1Container.appendChild(marketValue1Title)
+    marketValue1Container.appendChild(marketValue1Value)
+
+    metricsRightContainer.appendChild(marketValue2Container)
+    marketValue2Container.appendChild(marketValue2Title)
+    marketValue2Container.appendChild(marketValue2Value)
+
+    metricsRightContainer.appendChild(airbnbContainer)
+    airbnbContainer.appendChild(airbnbTitle)
+    airbnbContainer.appendChild(airbnbValue)
+
+}
+
 function generateProperty(){
-    generateHomeDetails()
-    generateExpensesBreakdown()
-    generateRevenueContainer()
+    for(let i = 0; i < testHomes.length; i++){
+        addNewHome()
+        // generateHomeDetails()
+        // generateExpensesBreakdown()
+        // generateRevenueContainer()
+        // generateInvestmentMetrics()
+    }
 }
 
 generateProperty()
