@@ -4,7 +4,8 @@ import { calculateLoanAmount } from './calculationScripts.js'
 import { calculateClosingCost } from './calculationScripts.js'
 import { calculateInterestRate } from './calculationScripts.js'
 import { calculateMonthlyMortgage } from './calculationScripts.js'
-import { calculateTotalMonthly } from './calculationScripts.js'
+import { calculateTotalMortgage } from './calculationScripts.js'
+import { calculateTotalNoMortgage } from './calculationScripts.js'
 
 const contentContainer = document.getElementById('content-container')
 
@@ -259,15 +260,33 @@ function generateExpensesBreakdown(propertyContainer, home){
     totalExpensesContainer.className = 'total-expenses-container'
     totalExpensesContainer.id = 'total-expenses-container'
 
-    const totalExpensesTitle = document.createElement('p')
-    totalExpensesTitle.className = 'total-expenses-title'
-    totalExpensesTitle.id = 'total-expenses-title'
-    totalExpensesTitle.innerHTML = 'Total Monthly Expense: '
+    const totalExpensesMortgageContainer = document.createElement('div')
+    totalExpensesMortgageContainer.className = 'total-expenses-mortage-container'
+    totalExpensesMortgageContainer.id = 'total-expenses-mortage-container'
 
-    const totalExpensesInput = document.createElement('p')
-    totalExpensesInput.className = `total-expenses-input ${home['mls']}`
-    totalExpensesInput.id = 'total-expenses-input'
-    totalExpensesInput.innerHTML = `$${ calculateTotalMonthly(home) }`
+    const totalExpensesMortgageTitle = document.createElement('p')
+    totalExpensesMortgageTitle.className = 'total-expenses-mortage-title'
+    totalExpensesMortgageTitle.id = 'total-expenses-mortage-title'
+    totalExpensesMortgageTitle.innerHTML = 'Monthly Expense (Mortgage): '
+
+    const totalExpensesMortgageInput = document.createElement('p')
+    totalExpensesMortgageInput.className = `total-expenses-mortgage-input ${home['mls']}`
+    totalExpensesMortgageInput.id = 'total-expenses-mortgage-input'
+    totalExpensesMortgageInput.innerHTML = `$${ calculateTotalMortgage(home) }`
+
+    const totalExpensesNoMortgageContainer = document.createElement('div')
+    totalExpensesNoMortgageContainer.className = 'total-expenses-no-mortage-container'
+    totalExpensesNoMortgageContainer.id = 'total-expenses-no-mortage-container'
+
+    const totalExpensesNoMortgageTitle = document.createElement('p')
+    totalExpensesNoMortgageTitle.className = 'total-expenses-no-mortage-title'
+    totalExpensesNoMortgageTitle.id = 'total-expenses-no-mortage-title'
+    totalExpensesNoMortgageTitle.innerHTML = 'Monthly Expense (No Mortgage): '
+
+    const totalExpensesNoMortgageInput = document.createElement('p')
+    totalExpensesNoMortgageInput.className = `total-expenses-no-mortgage-input ${home['mls']}`
+    totalExpensesNoMortgageInput.id = 'total-expenses-no-mortgage-input'
+    totalExpensesNoMortgageInput.innerHTML = `$${ calculateTotalNoMortgage(home) }`
     //----------------------------------------------------------------
 
     const mortgageRentContainer = document.createElement('div')
@@ -457,9 +476,15 @@ function generateExpensesBreakdown(propertyContainer, home){
     interestRateContainer.appendChild(interestRateTitle)
     interestRateContainer.appendChild(interestRateInput)
 
-    propertyPaymentsContainer.appendChild(totalExpensesContainer)
-    totalExpensesContainer.appendChild(totalExpensesTitle)
-    totalExpensesContainer.appendChild(totalExpensesInput)
+    propertyContainer.appendChild(totalExpensesContainer)
+
+    totalExpensesContainer.appendChild(totalExpensesMortgageContainer)
+    totalExpensesMortgageContainer.appendChild(totalExpensesMortgageTitle)
+    totalExpensesMortgageContainer.appendChild(totalExpensesMortgageInput)
+
+    totalExpensesContainer.appendChild(totalExpensesNoMortgageContainer)
+    totalExpensesNoMortgageContainer.appendChild(totalExpensesNoMortgageTitle)
+    totalExpensesNoMortgageContainer.appendChild(totalExpensesNoMortgageInput)
 }
 
 function generateRevenueContainer(propertyContainer, home){

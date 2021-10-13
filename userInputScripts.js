@@ -1,5 +1,5 @@
 import { testHomes } from './setDefaultValues.js'
-import { calculateTotalMonthly } from './calculationScripts.js'
+import { calculateTotalMortgage } from './calculationScripts.js'
 
 document.querySelectorAll('.additional-cost-value').forEach(item => {
     item.addEventListener('input', event => {

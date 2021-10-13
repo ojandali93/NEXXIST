@@ -30,7 +30,7 @@ export function calculateMonthlyMortgage(price){
     return monthlyPayment.toFixed(2)
 }
 
-export function calculateTotalMonthly(home){
+export function calculateTotalMortgage(home){
     let principleAndInterest = calculateMonthlyMortgage(home['price'])
     let propertyTax = home['property_tax']
     let homeInsurance = home['home_insurance']
@@ -39,3 +39,13 @@ export function calculateTotalMonthly(home){
     let totalMonthly = parseInt(principleAndInterest) + parseInt(propertyTax) + parseInt(homeInsurance) + parseInt(hoaFee) + parseInt(additionalCost)
     return totalMonthly
 }
+
+export function calculateTotalNoMortgage(home){
+    let propertyTax = home['property_tax']
+    let homeInsurance = home['home_insurance']
+    let hoaFee = home['hoa']
+    let additionalCost = home['additional_cost']
+    let totalMonthly = parseInt(propertyTax) + parseInt(homeInsurance) + parseInt(hoaFee) + parseInt(additionalCost)
+    return totalMonthly
+}
+

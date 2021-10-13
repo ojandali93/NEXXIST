@@ -191,10 +191,11 @@
     background-color: grey;
 }
 
-.mortgage-rent-container {
-}
-
-.mortgage-calculator-container {
+.total-expenses-container {
+    margin-top: 14px;;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .rent-revenue-container {
