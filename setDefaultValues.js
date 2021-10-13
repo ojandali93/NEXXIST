@@ -16,7 +16,10 @@ export const testHomes = [
         'property_tax': 2911,
         'home_insurance': 699,
         'hoa': 885,
-        'additional_cost': 0
+        'additional_cost': 0,
+        'rent': 0,
+        'revenue': 0,
+        'total_revenue': 0
     },
     {
         'price': 14000000,
@@ -33,7 +36,10 @@ export const testHomes = [
         'property_tax': 14583,
         'home_insurance': 3500,
         'hoa': 0,
-        'additional_cost': 0
+        'additional_cost': 0,
+        'rent': 0,
+        'revenue': 0,
+        'total_revenue': 0
     },
     {
         'price': 5988000,
@@ -50,7 +56,10 @@ export const testHomes = [
         'property_tax': 6238,
         'home_insurance': 1497,
         'hoa': 0,
-        'additional_cost': 0
+        'additional_cost': 0,
+        'rent': 0,
+        'revenue': 0,
+        'total_revenue': 0
     },
 ]
 

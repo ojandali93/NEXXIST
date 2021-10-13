@@ -184,8 +184,6 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.monthly-expenses-container {
-}
 
 .header-break {
     width: 100%;
@@ -199,8 +197,15 @@
 .mortgage-calculator-container {
 }
 
-.rent-container {
+.rent-revenue-container {
     margin-top: 15px;
+}
+
+.rent-revenue-content{
+    margin-top: 15px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .investment-metric-container {

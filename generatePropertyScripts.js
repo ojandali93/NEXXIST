@@ -192,7 +192,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     const principleAndInterestValue = document.createElement('p')
     principleAndInterestValue.className = 'princliple-and-expenses-value'
     principleAndInterestValue.id = 'princliple-and-expenses-value'
-    principleAndInterestValue.innerHTML = `${ calculateMonthlyMortgage(home['price']) }`
+    principleAndInterestValue.innerHTML = `$${ calculateMonthlyMortgage(home['price']) }`
 
     // the following div hold the property tax
     const propertyTaxContainer = document.createElement('div')
@@ -207,7 +207,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     const propertyTaxValue = document.createElement('p')
     propertyTaxValue.className = 'property-tax-value'
     propertyTaxValue.id = 'property-tax-value'
-    propertyTaxValue.innerHTML = `${home['property_tax']}`
+    propertyTaxValue.innerHTML = `$${home['property_tax']}`
 
     // the following holds the home insurance
     const homeInsuranceContainer = document.createElement('div')
@@ -222,7 +222,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     const homeInsuranceValue = document.createElement('p')
     homeInsuranceValue.className = 'home-insurance-value'
     homeInsuranceValue.id = 'home-insurance-value'
-    homeInsuranceValue.innerHTML = `${home['home_insurance']}`
+    homeInsuranceValue.innerHTML = `$${home['home_insurance']}`
 
     // the following hold the hoa
     const hoaContainer = document.createElement('div')
@@ -237,7 +237,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     const hoaValue = document.createElement('p')
     hoaValue.className = 'hoa-value'
     hoaValue.id = 'hoa-value'
-    hoaValue.innerHTML = `${home['hoa']}`
+    hoaValue.innerHTML = `$${home['hoa']}`
 
     // the following hold the mortgage insurance
     const additionalCostContainer = document.createElement('div')
@@ -267,7 +267,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     const totalExpensesInput = document.createElement('p')
     totalExpensesInput.className = `total-expenses-input ${home['mls']}`
     totalExpensesInput.id = 'total-expenses-input'
-    totalExpensesInput.innerHTML = `${ calculateTotalMonthly(home) }`
+    totalExpensesInput.innerHTML = `$${ calculateTotalMonthly(home) }`
     //----------------------------------------------------------------
 
     const mortgageRentContainer = document.createElement('div')
@@ -312,7 +312,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     loanAmountInput.className = 'loan-amount-input'
     loanAmountInput.id = 'loan-amount-input'
     loanAmountInput.type = 'number'
-    loanAmountInput.innerHTML = `${ calculateLoanAmount(home['price']) }`
+    loanAmountInput.innerHTML = `$${ calculateLoanAmount(home['price']) }`
 
     // the following div holds the down payment
     const downPaymentContainer = document.createElement('div')
@@ -328,7 +328,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     downPaymentInput.className = 'down-payment-input'
     downPaymentInput.id = 'down-payment-input'
     downPaymentInput.type = 'number'
-    downPaymentInput.innerHTML = `${ calculateDownPayment(home['price']) }`
+    downPaymentInput.innerHTML = `$${ calculateDownPayment(home['price']) }`
 
     // the following div holds the closing costs payment
     const closingCostContainer = document.createElement('div')
@@ -344,7 +344,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     closingCostInput.className = 'closing-cost-input'
     closingCostInput.id = 'closing-cost-input'
     closingCostInput.type = 'number'
-    closingCostInput.innerHTML = `${ calculateClosingCost(home['price']) }`
+    closingCostInput.innerHTML = `$${ calculateClosingCost(home['price']) }`
 
     // the following div holds the years payment
     const yearContainer = document.createElement('div')
@@ -360,7 +360,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     yearsInput.className = 'year-input'
     yearsInput.id = 'year-input'
     yearsInput.type = 'number'
-    yearsInput.innerHTML = `${ defaultYears }`
+    yearsInput.innerHTML = `$${ defaultYears }`
 
     // the following div holds the interest rate payment
     const interestRateContainer = document.createElement('div')
@@ -376,7 +376,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     interestRateInput.className = 'interest-rate-input'
     interestRateInput.id = 'interest-rate-input'
     interestRateInput.type = 'number'
-    interestRateInput.innerHTML = `${ calculateInterestRate(home['price']) }`
+    interestRateInput.innerHTML = `$${ calculateInterestRate(home['price']) }`
 
     // the following div holds the interest rate payment
     const totalMortgageContainer = document.createElement('div')
@@ -462,10 +462,10 @@ function generateExpensesBreakdown(propertyContainer, home){
     totalExpensesContainer.appendChild(totalExpensesInput)
 }
 
-function generateRevenueContainer(propertyContainer){
+function generateRevenueContainer(propertyContainer, home){
     const rentRevenueContainer = document.createElement('div')
-    rentRevenueContainer.className = 'rent-container'
-    rentRevenueContainer.id = 'rent-container'
+    rentRevenueContainer.className = 'rent-revenue-container'
+    rentRevenueContainer.id = 'rent-revenue-container'
 
     const rentRevenueHeader = document.createElement('p')
     rentRevenueHeader.className = 'rent-revenue-header'
@@ -475,6 +475,10 @@ function generateRevenueContainer(propertyContainer){
     const rentRevueBreak = document.createElement('div')
     rentRevueBreak.className = 'header-break'
     rentRevueBreak.id = 'header-break'
+
+    const rentRevueContent = document.createElement('div')
+    rentRevueContent.className = 'rent-revenue-content'
+    rentRevueContent.id = 'rent-revenue-content'
 
     // the following is going to contain the rent
     const rentContainer = document.createElement('div')
@@ -487,8 +491,8 @@ function generateRevenueContainer(propertyContainer){
     rentTitle.innerHTML = 'Rent: '
 
     const rentInput = document.createElement('input')
-    rentInput.className = 'rent-input'
-    rentInput.id = 'rent-input'
+    rentInput.className = `rent-input ${home['mls']}`
+    rentInput.id = `rent-input`
     rentInput.type = 'number'
     rentInput.placeholder = '$' 
 
@@ -503,7 +507,7 @@ function generateRevenueContainer(propertyContainer){
     revenueTitle.innerHTML = 'Revenue: '
 
     const revenueInput = document.createElement('input')
-    revenueInput.className = 'revenue-input'
+    revenueInput.className = `revenue-input ${home['mls']}`
     revenueInput.id = 'revenue-input'
     revenueInput.type = 'number'
     revenueInput.placeholder = '$'
@@ -519,19 +523,23 @@ function generateRevenueContainer(propertyContainer){
     totalRevenueTitle.innerHTML = 'Total Revenue: '
 
     const totalRevenueInput = document.createElement('p')
-    totalRevenueInput.className = 'total-revenue-input'
+    totalRevenueInput.className = `total-revenue-input ${home['mls']}`
     totalRevenueInput.id = 'total-revenue-input'
-    totalRevenueInput.innerHTML = '$$$'
+    totalRevenueInput.innerHTML = '$0'
 
     propertyContainer.appendChild(rentRevenueContainer)
     rentRevenueContainer.appendChild(rentRevenueHeader)
     rentRevenueContainer.appendChild(rentRevueBreak)
 
-    rentRevenueContainer.appendChild(rentContainer)
+
+
+    rentRevenueContainer.append(rentRevueContent)
+    
+    rentRevueContent.appendChild(rentContainer)
     rentContainer.appendChild(rentTitle)
     rentContainer.appendChild(rentInput)
 
-    rentRevenueContainer.appendChild(revenueContainer)
+    rentRevueContent.appendChild(revenueContainer)
     revenueContainer.appendChild(revenueTitle)
     revenueContainer.appendChild(revenueInput)
 
