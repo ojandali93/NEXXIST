@@ -1,65 +1,10 @@
-const testHomes = [
-    {
-        'price': 524000,
-        'beds': 3,
-        'baths': 2,
-        'sqft': 1049,
-        'lot': 2645,
-        'status': 'Active',
-        'address1': "28191 Sorrento",
-        'address2': "Laguna Niguel, CA 92677",
-        'days_listed': 12,
-        'mls_listing': 11022323,
-    },
-    {
-        'price': 949999,
-        'beds': 3,
-        'baths': 3,
-        'sqft': 1605,
-        'lot': 2645,
-        'status': 'Active',
-        'address1': "3 Saint Elizebeth",
-        'address2': "Laguna Niguel, CA 92677",
-        'days_listed': 17,
-        'mls_listing': 17564345,
-    },
-    {
-        'price': 1328000,
-        'beds': 4,
-        'baths': 4,
-        'sqft': 2576,
-        'lot': 4122,
-        'status': 'Active',
-        'address1': "30052 Happy Sparrow Ln",
-        'address2': "Laguna Niguel, CA 92677",
-        'days_listed': 31,
-        'mls_listing': 93857365,
-    },
-    {
-        'price': 2098000,
-        'beds': 5,
-        'baths': 5,
-        'sqft': 3672,
-        'lot': 5532,
-        'status': 'Active',
-        'address1': "28751 Concord Ln",
-        'address2': "Laguna Niguel, CA 92677",
-        'days_listed': 3,
-        'mls_listing': 447385823,
-    },
-    {
-        'price': 3950000,
-        'beds': 5,
-        'baths': 7,
-        'sqft': 5551,
-        'lot': 7943,
-        'status': 'Active',
-        'address1': "2 Ebony Glade",
-        'address2': "Laguna Niguel, CA 92677",
-        'days_listed': 15,
-        'mls_listing': 33425634,
-    }
-]
+import { defaultYears } from './calculationScripts.js'
+import { calculateDownPayment } from './calculationScripts.js'
+import { calculateLoanAmount } from './calculationScripts.js'
+import { calculateClosingCost } from './calculationScripts.js'
+import { calculateInterestRate } from './calculationScripts.js'
+import { calculateMonthlyMortgage } from './calculationScripts.js'
+import { calculateTotalMonthly } from './calculationScripts.js'
 
 const contentContainer = document.getElementById('content-container')
 
@@ -67,19 +12,19 @@ const propertyContainer = document.createElement('div')
 propertyContainer.className = 'property-container'
 propertyContainer.id = 'property-container'
 
-function addNewHome(){
+export function addNewHome(home){
     const propertyContainer = document.createElement('div')
     propertyContainer.className = 'property-container'
     propertyContainer.id = 'property-container'
 
-    contentContainer.appendChild(propertyContainer)
-    generateHomeDetails(propertyContainer)
-    generateExpensesBreakdown(propertyContainer)
-    generateRevenueContainer(propertyContainer)
-    generateInvestmentMetrics(propertyContainer)
+    contentContainer.appendChild(propertyContainer, home)
+    generateHomeDetails(propertyContainer, home)
+    generateExpensesBreakdown(propertyContainer, home)
+    generateRevenueContainer(propertyContainer, home)
+    generateInvestmentMetrics(propertyContainer, home)
 }
 
-function generateHomeDetails(propertyContainer){
+function generateHomeDetails(propertyContainer, home){
 
     // This div is going to contain the property detail information
     const propertyDetailContainer = document.createElement('div')
@@ -110,12 +55,12 @@ function generateHomeDetails(propertyContainer){
     const homePrice = document.createElement('p')
     homePrice.className = 'home-price'
     homePrice.id = 'home-price'
-    homePrice.innerHTML = 'Price:'
+    homePrice.innerHTML = `Price: ${home['price']}`
 
     const homeStatus = document.createElement('p')
     homeStatus.className = 'home-status'
     homeStatus.id = 'home-status'
-    homeStatus.innerHTML = 'Status:'
+    homeStatus.innerHTML = `Status: ${home['status']}`
 
     // the section will conain home beds/baths/sqft/lot (row)
     const bbsqContainer = document.createElement('div')
@@ -125,22 +70,22 @@ function generateHomeDetails(propertyContainer){
     const homeBeds = document.createElement('p')
     homeBeds.className = 'home-beds'
     homeBeds.id = 'home-beds'
-    homeBeds.innerHTML = 'Beds:'
+    homeBeds.innerHTML = `Beds: ${home['beds']}`
 
     const homeBaths = document.createElement('p')
     homeBaths.className = 'home-baths'
     homeBaths.id = 'home-baths'
-    homeBaths.innerHTML = 'Baths:'
+    homeBaths.innerHTML = `Baths: ${home['baths']}`
 
     const homeSqft = document.createElement('p')
     homeSqft.className = 'home-sqft'
     homeSqft.id = 'home-sqft'
-    homeSqft.innerHTML = 'SqFt:'
+    homeSqft.innerHTML = `SqFt: ${home['sqft']}`
 
     const homeLot = document.createElement('p')
     homeLot.className = 'home-lot'
     homeLot.id = 'home-lot'
-    homeLot.innerHTML = 'Lot:'
+    homeLot.innerHTML = `Lot: ${home['lot']}`
 
     // the section will conain the two parts of the address (column)
     const addressContainer = document.createElement('div')
@@ -150,7 +95,7 @@ function generateHomeDetails(propertyContainer){
     const homeAddress1 = document.createElement('p')
     homeAddress1.className = 'home-address'
     homeAddress1.id = 'home-address-1'
-    homeAddress1.innerHTML = 'address1'
+    homeAddress1.innerHTML = `Address: ${home['address']}`
 
     // the section will conain the days listed and mls(row)
     const listingContainer = document.createElement('div')
@@ -160,12 +105,12 @@ function generateHomeDetails(propertyContainer){
     const homeDaysListed = document.createElement('p')
     homeDaysListed.className = 'home-days-listed'
     homeDaysListed.id = 'home-days-listed'
-    homeDaysListed.innerHTML = 'Days: '
+    homeDaysListed.innerHTML = `Days: ${home['days']}`
 
     const homeMLS = document.createElement('p')
     homeMLS.className = 'home-mls'
     homeMLS.id = 'home-mls'
-    homeMLS.innerHTML = 'MLS: '
+    homeMLS.innerHTML = `MLS: ${home['mls']}`
 
     // the section will conain the agent and bropker(row)
     const agentBrokerContainer = document.createElement('div')
@@ -175,12 +120,12 @@ function generateHomeDetails(propertyContainer){
     const homeAgent = document.createElement('p')
     homeAgent.className = 'home-agent'
     homeAgent.id = 'home-agent'
-    homeAgent.innerHTML = 'Agent: '
+    homeAgent.innerHTML = `Agent: ${home['agent']}`
 
     const homeBroker = document.createElement('p')
     homeBroker.className = 'home-broker'
     homeBroker.id = 'home-broker'
-    homeBroker.innerHTML = 'Broker: '
+    homeBroker.innerHTML = `Broker: ${home['broker']}`
 
     propertyContainer.appendChild(propertyDetailContainer)
 
@@ -209,7 +154,7 @@ function generateHomeDetails(propertyContainer){
     agentBrokerContainer.appendChild(homeBroker)
 }
 
-function generateExpensesBreakdown(propertyContainer){
+function generateExpensesBreakdown(propertyContainer, home){
     // this is going to contain all of the information related
     // to the mayments and stuff
     const propertyPaymentsContainer = document.createElement('div')
@@ -247,7 +192,7 @@ function generateExpensesBreakdown(propertyContainer){
     const principleAndInterestValue = document.createElement('p')
     principleAndInterestValue.className = 'princliple-and-expenses-value'
     principleAndInterestValue.id = 'princliple-and-expenses-value'
-    principleAndInterestValue.innerText = '#####'
+    principleAndInterestValue.innerHTML = `${ calculateMonthlyMortgage(home['price']) }`
 
     // the following div hold the property tax
     const propertyTaxContainer = document.createElement('div')
@@ -257,12 +202,12 @@ function generateExpensesBreakdown(propertyContainer){
     const propertyTaxTitle = document.createElement('p')
     propertyTaxTitle.className = 'property-tax-title'
     propertyTaxTitle.id = 'property-tax-title'
-    propertyTaxTitle.innerText = 'Property Tax: '
+    propertyTaxTitle.innerHTML = 'Property Tax (montly): '
 
     const propertyTaxValue = document.createElement('p')
     propertyTaxValue.className = 'property-tax-value'
     propertyTaxValue.id = 'property-tax-value'
-    propertyTaxValue.innerText = '#####'
+    propertyTaxValue.innerHTML = `${home['property_tax']}`
 
     // the following holds the home insurance
     const homeInsuranceContainer = document.createElement('div')
@@ -272,12 +217,12 @@ function generateExpensesBreakdown(propertyContainer){
     const homeInsuranceTitle = document.createElement('p')
     homeInsuranceTitle.className = 'home-insurance-title'
     homeInsuranceTitle.id = 'home-insurance-title'
-    homeInsuranceTitle.innerText = 'Home Insurance: '
+    homeInsuranceTitle.innerHTML = 'Home Insurance (monthly): '
 
     const homeInsuranceValue = document.createElement('p')
     homeInsuranceValue.className = 'home-insurance-value'
     homeInsuranceValue.id = 'home-insurance-value'
-    homeInsuranceValue.innerText = '#####'
+    homeInsuranceValue.innerHTML = `${home['home_insurance']}`
 
     // the following hold the hoa
     const hoaContainer = document.createElement('div')
@@ -287,27 +232,12 @@ function generateExpensesBreakdown(propertyContainer){
     const hoaTitle = document.createElement('p')
     hoaTitle.className = 'hoa-title'
     hoaTitle.id = 'hoa-title'
-    hoaTitle.innerText = 'HOA: '
+    hoaTitle.innerHTML = 'HOA: '
 
     const hoaValue = document.createElement('p')
     hoaValue.className = 'hoa-value'
     hoaValue.id = 'hoa-value'
-    hoaValue.innerText = '#####'
-
-    // the following hold the mortgage insurance
-    const mortgageInsuranceContainer = document.createElement('div')
-    mortgageInsuranceContainer.className = 'mortage-insurance-container'
-    mortgageInsuranceContainer.id = 'mortage-insurance-container'
-
-    const mortgageInsuranceTitle = document.createElement('p')
-    mortgageInsuranceTitle.className = 'mortgage-insurance-title'
-    mortgageInsuranceTitle.id = 'mortgage-insurance-title'
-    mortgageInsuranceTitle.innerText = 'Mortgage Insurance: '
-
-    const mortgageInsuranceValue = document.createElement('p')
-    mortgageInsuranceValue.className = 'mortgage-insurance-value'
-    mortgageInsuranceValue.id = 'mortgage-insurance-value'
-    mortgageInsuranceValue.innerText = '#####'
+    hoaValue.innerHTML = `${home['hoa']}`
 
     // the following hold the mortgage insurance
     const additionalCostContainer = document.createElement('div')
@@ -317,13 +247,13 @@ function generateExpensesBreakdown(propertyContainer){
     const additionalCostTitle = document.createElement('p')
     additionalCostTitle.className = 'additional-cost-title'
     additionalCostTitle.id = 'additiona-cost-title'
-    additionalCostTitle.innerText = 'Additional Cost: '
+    additionalCostTitle.innerHTML = 'Additional Cost (monthly): '
 
     const additionalCostValue = document.createElement('input')
     additionalCostValue.className = 'additional-cost-value'
     additionalCostValue.id = 'additional-cost-value'
     additionalCostValue.type = 'number'
-    additionalCostValue.placeholder = 'cost $'
+    additionalCostValue.defaultValue = `###`
 
     const totalExpensesContainer = document.createElement('div')
     totalExpensesContainer.className = 'total-expenses-container'
@@ -337,7 +267,7 @@ function generateExpensesBreakdown(propertyContainer){
     const totalExpensesInput = document.createElement('p')
     totalExpensesInput.className = 'total-expenses-input'
     totalExpensesInput.id = 'total-expenses-input'
-    totalExpensesInput.innerHTML = '$$$'
+    totalExpensesInput.innerHTML = `${ calculateTotalMonthly(home) }`
     //----------------------------------------------------------------
 
     const mortgageRentContainer = document.createElement('div')
@@ -360,6 +290,15 @@ function generateExpensesBreakdown(propertyContainer){
     mortgageBreak.id = 'header-break'
 
     // the following div holds the priciple and interest
+    const mortgageDisclaimerContainer = document.createElement('div')
+    mortgageDisclaimerContainer.className = 'mortgage-disclaimer-container'
+    mortgageDisclaimerContainer.id = 'mortgage-disclaimer-container'
+
+    const mortgageDisclaimerText = document.createElement('p')
+    mortgageDisclaimerText.className = 'mortgage-disclaimer-text'
+    mortgageDisclaimerText.id = 'mortgage-disclaimer-text'
+    mortgageDisclaimerText.innerHTML = '** 30 year fixed loan at 3.15% w/ 20% down **'
+
     const loanAmountContainer = document.createElement('div')
     loanAmountContainer.className = 'loan-amount-container'
     loanAmountContainer.id = 'loan-amount-container'
@@ -369,27 +308,27 @@ function generateExpensesBreakdown(propertyContainer){
     loanAmountTitle.id = 'loan-amount-title'
     loanAmountTitle.innerHTML = 'Loan $: '
 
-    const loanAmountInput = document.createElement('input')
+    const loanAmountInput = document.createElement('p')
     loanAmountInput.className = 'loan-amount-input'
     loanAmountInput.id = 'loan-amount-input'
     loanAmountInput.type = 'number'
-    loanAmountInput.placeholder = '$' 
+    loanAmountInput.innerHTML = `${ calculateLoanAmount(home['price']) }`
 
     // the following div holds the down payment
     const downPaymentContainer = document.createElement('div')
     downPaymentContainer.className = 'down-payment-container'
     downPaymentContainer.id = 'down-payment-container'
-    downPaymentContainer.innerHTML = 'Down Payment: '
 
     const downPaymentTitle = document.createElement('p')
     downPaymentTitle.className = 'down-payment-title'
     downPaymentTitle.id = 'down-payment-title'
+    downPaymentTitle.innerHTML = 'Down Payment: '
 
-    const downPaymentInput = document.createElement('input')
+    const downPaymentInput = document.createElement('p')
     downPaymentInput.className = 'down-payment-input'
     downPaymentInput.id = 'down-payment-input'
     downPaymentInput.type = 'number'
-    downPaymentInput.placeholder = '$' 
+    downPaymentInput.innerHTML = `${ calculateDownPayment(home['price']) }`
 
     // the following div holds the closing costs payment
     const closingCostContainer = document.createElement('div')
@@ -401,11 +340,11 @@ function generateExpensesBreakdown(propertyContainer){
     closingCostTitle.id = 'closing-cost-title'
     closingCostTitle.innerHTML = 'Closing Cost: '
 
-    const closingCostInput = document.createElement('input')
+    const closingCostInput = document.createElement('p')
     closingCostInput.className = 'closing-cost-input'
     closingCostInput.id = 'closing-cost-input'
     closingCostInput.type = 'number'
-    closingCostInput.placeholder = '$' 
+    closingCostInput.innerHTML = `${ calculateClosingCost(home['price']) }`
 
     // the following div holds the years payment
     const yearContainer = document.createElement('div')
@@ -417,11 +356,11 @@ function generateExpensesBreakdown(propertyContainer){
     yearsTitle.id = 'year-title'
     yearsTitle.innerHTML = 'Loan Years: '
 
-    const yearsInput = document.createElement('input')
+    const yearsInput = document.createElement('p')
     yearsInput.className = 'year-input'
     yearsInput.id = 'year-input'
     yearsInput.type = 'number'
-    yearsInput.placeholder = '$'
+    yearsInput.innerHTML = `${ defaultYears }`
 
     // the following div holds the interest rate payment
     const interestRateContainer = document.createElement('div')
@@ -433,11 +372,11 @@ function generateExpensesBreakdown(propertyContainer){
     interestRateTitle.id = 'interest-rate-title'
     interestRateTitle.innerHTML = 'Interest Rate: '
 
-    const interestRateInput = document.createElement('input')
+    const interestRateInput = document.createElement('p')
     interestRateInput.className = 'interest-rate-input'
     interestRateInput.id = 'interest-rate-input'
     interestRateInput.type = 'number'
-    interestRateInput.placeholder = '$'
+    interestRateInput.innerHTML = `${ calculateInterestRate(home['price']) }`
 
     // the following div holds the interest rate payment
     const totalMortgageContainer = document.createElement('div')
@@ -452,7 +391,7 @@ function generateExpensesBreakdown(propertyContainer){
     const totalMortgageInput = document.createElement('p')
     totalMortgageInput.className = 'total-mortgage-input'
     totalMortgageInput.id = 'total-mortgage-input'
-    totalMortgageInput.innerHTML = '$$$'
+    totalMortgageInput.innerHTML = ``
 
     propertyContainer.appendChild(propertyPaymentsContainer)
 
@@ -481,13 +420,13 @@ function generateExpensesBreakdown(propertyContainer){
     hoaContainer.appendChild(hoaTitle)
     hoaContainer.appendChild(hoaValue)
 
-    expensesContainer.appendChild(mortgageInsuranceContainer)
-    mortgageInsuranceContainer.appendChild(mortgageInsuranceTitle)
-    mortgageInsuranceContainer.appendChild(mortgageInsuranceValue)
+    expensesContainer.appendChild(additionalCostContainer)
+    additionalCostContainer.appendChild(additionalCostTitle)
+    additionalCostContainer.appendChild(additionalCostValue)
 
-    expensesContainer.appendChild(totalExpensesContainer)
-    totalExpensesContainer.appendChild(totalExpensesTitle)
-    totalExpensesContainer.appendChild(totalExpensesInput)
+    // expensesContainer.appendChild(totalExpensesContainer)
+    // totalExpensesContainer.appendChild(totalExpensesTitle)
+    // totalExpensesContainer.appendChild(totalExpensesInput)
 
     // the follwing will be appended on the right side 
     propertyPaymentsContainer.appendChild(mortgageRentContainer)
@@ -495,13 +434,16 @@ function generateExpensesBreakdown(propertyContainer){
     mortgageRentContainer.appendChild(mortgageCalculatorContainer)
     mortgageCalculatorContainer.appendChild(mortgageBreak)
 
-    mortgageCalculatorContainer.appendChild(loanAmountContainer)
-    loanAmountContainer.appendChild(loanAmountTitle)
-    loanAmountContainer.appendChild(loanAmountInput)
+    mortgageCalculatorContainer.appendChild(mortgageDisclaimerContainer)
+    mortgageDisclaimerContainer.appendChild(mortgageDisclaimerText)
     
     mortgageCalculatorContainer.appendChild(downPaymentContainer)
     downPaymentContainer.appendChild(downPaymentTitle)
     downPaymentContainer.appendChild(downPaymentInput)
+
+    mortgageCalculatorContainer.appendChild(loanAmountContainer)
+    loanAmountContainer.appendChild(loanAmountTitle)
+    loanAmountContainer.appendChild(loanAmountInput)
 
     mortgageCalculatorContainer.appendChild(closingCostContainer)
     closingCostContainer.appendChild(closingCostTitle)
@@ -515,9 +457,9 @@ function generateExpensesBreakdown(propertyContainer){
     interestRateContainer.appendChild(interestRateTitle)
     interestRateContainer.appendChild(interestRateInput)
 
-    mortgageCalculatorContainer.appendChild(additionalCostContainer)
-    additionalCostContainer.appendChild(additionalCostTitle)
-    additionalCostContainer.appendChild(additionalCostValue)
+    propertyPaymentsContainer.appendChild(totalExpensesContainer)
+    totalExpensesContainer.appendChild(totalExpensesTitle)
+    totalExpensesContainer.appendChild(totalExpensesInput)
 }
 
 function generateRevenueContainer(propertyContainer){
@@ -839,36 +781,6 @@ function generateInvestmentMetrics(propertyContainer){
     airbnbValue.id = 'airbnb-value'
     airbnbValue.innerHTML = '$$$'
 
-    // // the following contains the net operating income
-    // const rentCostRatioContainer = document.createElement('div')
-    // rentCostRatioContainer.className = 'rent-cost-ratio-container'
-    // rentCostRatioContainer.id = 'rent-cost-ratio-container'
-
-    // const rentCostRatioTitle = document.createElement('p')
-    // rentCostRatioTitle.className = 'rent-cost-ratio-title'
-    // rentCostRatioTitle.id = 'rent-cost-ratio-title'
-    // rentCostRatioTitle.innerHTML = 'Rent Cost Ratio: '
-
-    // const rentCostRatioValue = document.createElement('p')
-    // rentCostRatioValue.className = 'rent-cost-ratio-value'
-    // rentCostRatioValue.id = 'rent-cost-ratio-value'
-    // rentCostRatioValue.innerHTML = '$$$'
-
-    // // the following contains the net operating income
-    // const investmentScoreContainer = document.createElement('div')
-    // investmentScoreContainer.className = 'investment-score-container'
-    // investmentScoreContainer.id = 'investment-score-container'
-
-    // const investmentScoreTitle = document.createElement('p')
-    // investmentScoreTitle.className = 'investment-score-title'
-    // investmentScoreTitle.id = 'investment-score-title'
-    // investmentScoreTitle.innerHTML = 'Investment Score: '
-
-    // const investmentScoreValue = document.createElement('p')
-    // investmentScoreValue.className = 'investment-score-value'
-    // investmentScoreValue.id = 'investment-score-value'
-    // investmentScoreValue.innerHTML = '$$$'
-
     propertyContainer.appendChild(investmentMetricsContainer)
 
     investmentMetricsContainer.appendChild(metricHeader)
@@ -937,14 +849,10 @@ function generateInvestmentMetrics(propertyContainer){
 
 }
 
-function generateProperty(){
-    for(let i = 0; i < testHomes.length; i++){
-        addNewHome()
-        // generateHomeDetails()
-        // generateExpensesBreakdown()
-        // generateRevenueContainer()
-        // generateInvestmentMetrics()
-    }
-}
+// function generateProperty(){
+//     for(let i = 0; i < 5; i++){
+//         addNewHome()
+//     }
+// }
 
-generateProperty()
+// generateProperty()

@@ -1,7 +1,7 @@
-var lowerSlider = document.querySelector('#lower'),
-   upperSlider = document.querySelector('#upper'),
-   lowerVal = parseInt(lowerSlider.value);
-   upperVal = parseInt(upperSlider.value);
+let lowerSlider = document.querySelector('#lower');
+let upperSlider = document.querySelector('#upper');
+let lowerVal = parseInt(lowerSlider.value);
+let upperVal = parseInt(upperSlider.value);
 
 upperSlider.oninput = function() {
    lowerVal = parseInt(lowerSlider.value);

@@ -1,40 +1,29 @@
-const loanAmount = document.getElementById('loan-amount-input')
-const downPaymentAmount = document.getElementById('down-payment-input')
-const closingCostAmount = document.getElementById('closing-cost-input')
-const yearAmount = document.getElementById('year-input')
-const interestRateAmount = document.getElementById('interest-rate-input')
-const additionaCostAmount = document.getElementById('additional-cost-value')
-const rentAmount = document.getElementById('rent-input')
-const revenueAmount = document.getElementById('revenue-input')
-
-loanAmount.addEventListener('input', () => {
-    console.log(loanAmount.value)
+document.querySelectorAll('#loan-amount-input').forEach(item => {
+    item.addEventListener('input', event => {
+        console.log(`Loan Amount: ${item.value}`)
+    })
 })
 
-downPaymentAmount.addEventListener('input', () => {
-    console.log(downPaymentAmount.value)
+document.querySelectorAll('#down-payment-input').forEach(item => {
+    item.addEventListener('input', event => {
+        console.log(`Down Payment: ${item.value}`)
+    })
 })
 
-closingCostAmount.addEventListener('input', () => {
-    console.log(closingCostAmount.value)
+document.querySelectorAll('#closing-cost-input').forEach(item => {
+    item.addEventListener('input', event => {
+        console.log(`Closing Costt: ${item.value}`)
+    })
 })
 
-yearAmount.addEventListener('input', () => {
-    console.log(yearAmount.value)
+document.querySelectorAll('#year-input').forEach(item => {
+    item.addEventListener('input', event => {
+        console.log(`Loan Years: ${item.value}`)
+    })
 })
 
-interestRateAmount.addEventListener('input', () => {
-    console.log(interestRateAmount.value)
-})
-
-additionaCostAmount.addEventListener('input', () => {
-    console.log(additionaCostAmount.value)
-})
-
-rentAmount.addEventListener('input', () => {
-    console.log(rentAmount.value)
-})
-
-revenueAmount.addEventListener('input', () => {
-    console.log(revenueAmount.value)
+document.querySelectorAll('#interest-rate-input').forEach(item => {
+    item.addEventListener('input', event => {
+        console.log(`Interest Rate: ${item.value}`)
+    })
 })
