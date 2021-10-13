@@ -35,6 +35,7 @@ export function calculateTotalMonthly(home){
     let propertyTax = home['property_tax']
     let homeInsurance = home['home_insurance']
     let hoaFee = home['hoa']
-    let totalMonthly = parseInt(principleAndInterest) + parseInt(propertyTax) + parseInt(homeInsurance) + parseInt(hoaFee)
+    let additionalCost = home['additional_cost']
+    let totalMonthly = parseInt(principleAndInterest) + parseInt(propertyTax) + parseInt(homeInsurance) + parseInt(hoaFee) + parseInt(additionalCost)
     return totalMonthly
 }

@@ -250,10 +250,10 @@ function generateExpensesBreakdown(propertyContainer, home){
     additionalCostTitle.innerHTML = 'Additional Cost (monthly): '
 
     const additionalCostValue = document.createElement('input')
-    additionalCostValue.className = 'additional-cost-value'
-    additionalCostValue.id = 'additional-cost-value'
+    additionalCostValue.className = `additional-cost-value ${home['mls']}`
+    additionalCostValue.id = `additional-cost-value`
     additionalCostValue.type = 'number'
-    additionalCostValue.defaultValue = `###`
+    additionalCostValue.defaultValue = `0`
 
     const totalExpensesContainer = document.createElement('div')
     totalExpensesContainer.className = 'total-expenses-container'
@@ -265,7 +265,7 @@ function generateExpensesBreakdown(propertyContainer, home){
     totalExpensesTitle.innerHTML = 'Total Monthly Expense: '
 
     const totalExpensesInput = document.createElement('p')
-    totalExpensesInput.className = 'total-expenses-input'
+    totalExpensesInput.className = `total-expenses-input ${home['mls']}`
     totalExpensesInput.id = 'total-expenses-input'
     totalExpensesInput.innerHTML = `${ calculateTotalMonthly(home) }`
     //----------------------------------------------------------------

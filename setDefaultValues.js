@@ -1,6 +1,6 @@
 import { addNewHome } from './generatePropertyScripts.js'
 
-const testHomes = [
+export const testHomes = [
     {
         'price': 2795000,
         'status':'Active (new)',
@@ -10,12 +10,13 @@ const testHomes = [
         'lot': 1260,
         'address':'365 Forest Ave Apt 4E, Palo Alto, CA 94301',
         'days': 117,
-        'mls': 'Howard BLoom',
-        'agent': 'Intero Real Estate Service',
-        'broker': 'OC1145354654',
+        'mls': 'OC1145354654',
+        'agent': 'Howard Bloom',
+        'broker': 'Intero Real Estate Service',
         'property_tax': 2911,
         'home_insurance': 699,
-        'hoa': 885
+        'hoa': 885,
+        'additional_cost': 0
     },
     {
         'price': 14000000,
@@ -26,12 +27,13 @@ const testHomes = [
         'lot': .23,
         'address':'935 Scott St., Palo Alto, CA 94301',
         'days': 7,
-        'mls': 'Brent Cullixons',
-        'agent': 'Compass Real Estate',
-        'broker': 'OC66567457',
+        'mls': 'OC993843743',
+        'agent': 'Brent Cullixons',
+        'broker': 'Compass Real Estate',
         'property_tax': 14583,
         'home_insurance': 3500,
-        'hoa': 0
+        'hoa': 0,
+        'additional_cost': 0
     },
     {
         'price': 5988000,
@@ -42,16 +44,17 @@ const testHomes = [
         'lot': .32,
         'address':'1080 Palo Alto Ave, Palo Alto, CA 94301',
         'days': 13,
-        'mls': 'Ken Deleon',
-        'agent': 'Deleon Realty',
-        'broker': 'OC9338234',
+        'mls': 'OC22324242',
+        'agent': 'Ken Deleon',
+        'broker': 'Deleon Realty',
         'property_tax': 6238,
         'home_insurance': 1497,
-        'hoa': 0
+        'hoa': 0,
+        'additional_cost': 0
     },
 ]
 
-function createHomes() {
+export function createHomes() {
     for(let i = 0; i < testHomes.length; i++){
         const currentHome = testHomes[i]
         addNewHome(currentHome)
