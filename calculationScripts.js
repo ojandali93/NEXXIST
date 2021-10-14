@@ -22,6 +22,11 @@ export function calculateInterestRate(){
     return defaultInterestRate * 100;
 }
 
+export function calculateVacancyRate(price){
+    let vacancyRate = price * .92
+    return vacancyRate.toFixed(2)
+}
+
 export function calculateMonthlyMortgage(price){
     let loanAmount = calculateLoanAmount(price)
     let interestRate = defaultInterestRate/12

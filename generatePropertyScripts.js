@@ -764,9 +764,9 @@ function generateInvestmentMetrics(propertyContainer, home){
     vacancyRateTitle.innerHTML = 'Vacancy Rate: '
 
     const vacancyRateValue = document.createElement('p')
-    vacancyRateValue.className = 'vacancy-rate-value'
+    vacancyRateValue.className = `vacancy-rate-value ${home['mls']}`
     vacancyRateValue.id = 'vacancy-rate-value'
-    vacancyRateValue.innerHTML = '$$$'
+    vacancyRateValue.innerHTML = `$${0} @ ${0} Days`
 
     // the following contains the gross operating income
     const depreciationContainer = document.createElement('div')

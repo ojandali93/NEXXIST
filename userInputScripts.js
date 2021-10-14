@@ -9,6 +9,7 @@ import { calculateNetOperatingExpenses } from './investmentMetrics.js'
 import { calculateRentCostRatio } from './investmentMetrics.js'
 import { calculateGrossRentMultiplier } from './investmentMetrics.js'
 import { calculateReturnOnInvestment } from './investmentMetrics.js'
+import { calculateVacancyRate } from './investmentMetrics.js'
 
 document.querySelectorAll('.additional-cost-value').forEach(item => {
     item.addEventListener('input', event => {
@@ -33,6 +34,7 @@ function updateTotalMonthly(item, classItem){
                 calculateOperatingExpenseRatio(testHomes[i])
                 calculateNetOperatingExpenses(testHomes[i])
                 calculateReturnOnInvestment(testHomes[i])
+                calculateVacancyRate(testHomes[i])
             }
         }
     }
@@ -56,6 +58,7 @@ document.querySelectorAll('.rent-input').forEach(item => {
                     calculateRentCostRatio(testHomes[i])
                     calculateGrossRentMultiplier(testHomes[i])
                     calculateReturnOnInvestment(testHomes[i])
+                    calculateVacancyRate(testHomes[i])
                 }
             }
         }
@@ -79,6 +82,7 @@ document.querySelectorAll('.revenue-input').forEach(item => {
                     calculateNetOperatingExpenses(testHomes[i])
                     calculateRentCostRatio(testHomes[i])
                     calculateReturnOnInvestment(testHomes[i])
+                    calculateVacancyRate(testHomes[i])
                 }
             }
         }

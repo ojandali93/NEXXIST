@@ -50,7 +50,6 @@ export function calculateNetOperatingExpenses(home){
 
 export function calculateRentCostRatio(home){
     const currentItem = document.getElementsByClassName(`rent-cost-ratio-value ${home['mls']}`)
-    console.log(home)
     let annualRent = home['rent'] * 12
     let price = home['price']
     let rentPriceRatio = (annualRent / price) * 100
@@ -59,7 +58,6 @@ export function calculateRentCostRatio(home){
 
 export function calculateGrossRentMultiplier(home){
     const currentItem = document.getElementsByClassName(`gross-rent-multiplier-value ${home['mls']}`)
-    console.log(home)
     let annualRent = home['rent'] * 12
     let price = home['price']
     let grossRentMultipler = (price / annualRent)
@@ -71,15 +69,18 @@ export function calculateReturnOnInvestment(home){
     const currentItem = document.getElementsByClassName(`return-on-investment-value ${home['mls']}`)
     let initialInvestmentMortgage = parseInt(calculateDownPayment(home['price'])) + parseInt(calculateClosingCost(home['price']))
     let initialInvestmentNoMortgage = parseInt(home['price']) + parseInt(calculateClosingCost(home['price']))
-    console.log(initialInvestmentMortgage)
-    console.log(initialInvestmentNoMortgage)
     let monthlyRevenueMortgage = parseInt(home['total_revenue'] * 12) - parseInt(home['monthly_mortgage']) * 12
     let monthlyRevenueNoMortgage = parseInt(home['total_revenue'] * 12) - parseInt(home['monthly_no_mortgage']) * 12
-    console.log(home['monthly_mortgage'] * 12)
-    console.log(home['monthly_no_mortgage'] * 12)
-    console.log(monthlyRevenueMortgage)
-    console.log(monthlyRevenueNoMortgage)
     let mortgageROI = (monthlyRevenueMortgage / initialInvestmentMortgage) * 100
     let noMortgageROI = (monthlyRevenueNoMortgage / initialInvestmentNoMortgage) * 100
     currentItem[0].innerHTML = `%${mortgageROI.toFixed(2)} / %${noMortgageROI.toFixed(2)}`
+}
+
+export function calculateVacancyRate(home){
+    const currentItem = document.getElementsByClassName(`vacancy-rate-value ${home['mls']}`)
+    let vacancyRateDays = Math.round(.08 * 365)
+    let rent = home['rent'] * 12
+    let vaccancyRate = .94 
+    let annualRate = (rent * vaccancyRate) / vacancyRateDays
+    currentItem[0].innerHTML = `$${annualRate.toFixed(2)}/Day`
 }
