@@ -37,6 +37,7 @@ export function calculateTotalMortgage(home){
     let hoaFee = home['hoa']
     let additionalCost = home['additional_cost']
     let totalMonthly = parseInt(principleAndInterest) + parseInt(propertyTax) + parseInt(homeInsurance) + parseInt(hoaFee) + parseInt(additionalCost)
+    home['monthly_mortgage'] = totalMonthly
     return totalMonthly
 }
 
@@ -46,6 +47,7 @@ export function calculateTotalNoMortgage(home){
     let hoaFee = home['hoa']
     let additionalCost = home['additional_cost']
     let totalMonthly = parseInt(propertyTax) + parseInt(homeInsurance) + parseInt(hoaFee) + parseInt(additionalCost)
+    home['monthly_no_mortgage'] = totalMonthly
     return totalMonthly
 }
 

@@ -6,6 +6,7 @@ import { calculateInterestRate } from './calculationScripts.js'
 import { calculateMonthlyMortgage } from './calculationScripts.js'
 import { calculateTotalMortgage } from './calculationScripts.js'
 import { calculateTotalNoMortgage } from './calculationScripts.js'
+import { calculateCashFlow } from './investmentMetrics.js'
 
 const contentContainer = document.getElementById('content-container')
 
@@ -519,7 +520,7 @@ function generateRevenueContainer(propertyContainer, home){
     rentInput.className = `rent-input ${home['mls']}`
     rentInput.id = `rent-input`
     rentInput.type = 'number'
-    rentInput.placeholder = '$' 
+    rentInput.defaultValue = 0
 
     // the follwoing contains the revenue information
     const revenueContainer = document.createElement('div')
@@ -535,7 +536,7 @@ function generateRevenueContainer(propertyContainer, home){
     revenueInput.className = `revenue-input ${home['mls']}`
     revenueInput.id = 'revenue-input'
     revenueInput.type = 'number'
-    revenueInput.placeholder = '$'
+    revenueInput.defaultValue = 0
 
     // the followings contains the total revenue
     const totalRevenueContainer = document.createElement('div')
@@ -573,7 +574,7 @@ function generateRevenueContainer(propertyContainer, home){
     totalRevenueContainer.appendChild(totalRevenueInput)
 }
 
-function generateInvestmentMetrics(propertyContainer){
+function generateInvestmentMetrics(propertyContainer, home){
 
     const investmentMetricsContainer = document.createElement('div')
     investmentMetricsContainer.className = 'investment-metric-container'
@@ -582,7 +583,7 @@ function generateInvestmentMetrics(propertyContainer){
     const metricHeader = document.createElement('p')
     metricHeader.className = 'section-header'
     metricHeader.id = 'section-header' 
-    metricHeader.innerHTML = 'Investment Metrics: '
+    metricHeader.innerHTML = 'Investment Metrics (Mortgage / No Mortgage): '
     
     const metricsBreak = document.createElement('div')
     metricsBreak.className = 'header-break'
@@ -609,9 +610,9 @@ function generateInvestmentMetrics(propertyContainer){
     cashFlowTitle.innerHTML = 'Cash Flow: '
 
     const cashFlowValue = document.createElement('p')
-    cashFlowValue.className = 'cash-flow-value'
+    cashFlowValue.className = `cash-flow-value ${home['mls']}`
     cashFlowValue.id = 'cash-flow-value'
-    cashFlowValue.innerHTML = '$$$'
+    cashFlowValue.innerHTML = `$${0}`
 
     // the following contains the cash on cash
     const cashOnCashContainer = document.createElement('div')
