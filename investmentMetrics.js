@@ -26,4 +26,15 @@ export function calculateGrossOperatingIncome(home){
     let vaccancyRate = .94 
     let grossOperatedIncome = (rent * vaccancyRate) + revenue
     currentItem[0].innerHTML = `$${grossOperatedIncome} W/ 8% VR`
+    return grossOperatedIncome
+}
+
+export function calculateOperatingExpenseRatio(home){
+    const currentItem = document.getElementsByClassName(`operating-expense-ratio-value ${home['mls']}`)
+    let goi = calculateGrossOperatingIncome(home)
+    let operatingExpensesMortgage = home['monthly_mortgage']
+    let operatingExpensesNoMortgage = home['monthly_no_mortgage']
+    let operatingEexpenseRatioMortgage = ((operatingExpensesMortgage* 12)/goi) * 100
+    let operatingEexpenseRatioNoMortgage = ((operatingExpensesNoMortgage* 12)/goi) * 100
+    currentItem[0].innerHTML = `%${operatingEexpenseRatioMortgage.toFixed(2)} / %${operatingEexpenseRatioNoMortgage.toFixed(2)}`
 }

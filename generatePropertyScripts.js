@@ -643,6 +643,20 @@ function generateInvestmentMetrics(propertyContainer, home){
     grossOperatingIncomeValue.id = 'gross-operating-income-value'
     grossOperatingIncomeValue.innerHTML = `$${0}`
 
+    const operatingExpenseRatioContainer = document.createElement('div')
+    operatingExpenseRatioContainer.className = 'operating-expense-ratio-container'
+    operatingExpenseRatioContainer.id = 'operating-expense-ratio-container'
+
+    const operatingExpenseRatioTitle = document.createElement('p')
+    operatingExpenseRatioTitle.className = 'operating-expense-ratio-title'
+    operatingExpenseRatioTitle.id = 'operating-expense-ratio-title'
+    operatingExpenseRatioTitle.innerHTML = 'Operating Expense Ratio: '
+
+    const operatingExpenseRatioValue = document.createElement('p')
+    operatingExpenseRatioValue.className = `operating-expense-ratio-value ${home['mls']}`
+    operatingExpenseRatioValue.id = 'operating-expense-ratio-value'
+    operatingExpenseRatioValue.innerHTML = `% ${0}`
+
     // the following contains the net operating income
     const netOperatingIncomeContainer = document.createElement('div')
     netOperatingIncomeContainer.className = 'net-operating-income-container'
@@ -834,6 +848,10 @@ function generateInvestmentMetrics(propertyContainer, home){
     grossOperatingIncomeContainer.appendChild(grossOperatingIncomeTitle)
     grossOperatingIncomeContainer.appendChild(grossOperatingIncomeValue)
 
+    metricsLeftContainer.appendChild(operatingExpenseRatioContainer)
+    operatingExpenseRatioContainer.appendChild(operatingExpenseRatioTitle)
+    operatingExpenseRatioContainer.appendChild(operatingExpenseRatioValue)
+
     metricsLeftContainer.appendChild(netOperatingIncomeContainer)
     netOperatingIncomeContainer.appendChild(netOperatingIncomeTitle)
     netOperatingIncomeContainer.appendChild(netOperatingIncomeValue)
@@ -846,11 +864,15 @@ function generateInvestmentMetrics(propertyContainer, home){
     internalRateRevenueContainer.appendChild(internalRateRevenueTitle)
     internalRateRevenueContainer.appendChild(internalRateRevenueValue)
 
-    metricsLeftContainer.appendChild(investmentScoreContainer)
-    investmentScoreContainer.appendChild(investmentScoreTitle)
-    investmentScoreContainer.appendChild(investmentScoreValue)
+    // metricsLeftContainer.appendChild(investmentScoreContainer)
+    // investmentScoreContainer.appendChild(investmentScoreTitle)
+    // investmentScoreContainer.appendChild(investmentScoreValue)
 
     metricsSectionContainer.appendChild(metricsRightContainer)
+
+    metricsRightContainer.appendChild(internalRateRevenueContainer)
+    internalRateRevenueContainer.appendChild(internalRateRevenueTitle)
+    internalRateRevenueContainer.appendChild(internalRateRevenueValue)
 
     metricsRightContainer.appendChild(rentCostRatioContainer)
     rentCostRatioContainer.appendChild(rentCostRatioTitle)
@@ -868,17 +890,13 @@ function generateInvestmentMetrics(propertyContainer, home){
     depreciationContainer.appendChild(depreciationTitle)
     depreciationContainer.appendChild(depreciationValue)
 
-    metricsRightContainer.appendChild(marketValue1Container)
-    marketValue1Container.appendChild(marketValue1Title)
-    marketValue1Container.appendChild(marketValue1Value)
-
     metricsRightContainer.appendChild(marketValue2Container)
     marketValue2Container.appendChild(marketValue2Title)
     marketValue2Container.appendChild(marketValue2Value)
 
-    metricsRightContainer.appendChild(airbnbContainer)
-    airbnbContainer.appendChild(airbnbTitle)
-    airbnbContainer.appendChild(airbnbValue)
+    // metricsRightContainer.appendChild(airbnbContainer)
+    // airbnbContainer.appendChild(airbnbTitle)
+    // airbnbContainer.appendChild(airbnbValue)
 
 }
 
