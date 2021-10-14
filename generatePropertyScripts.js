@@ -6,7 +6,6 @@ import { calculateInterestRate } from './calculationScripts.js'
 import { calculateMonthlyMortgage } from './calculationScripts.js'
 import { calculateTotalMortgage } from './calculationScripts.js'
 import { calculateTotalNoMortgage } from './calculationScripts.js'
-import { calculateCashFlow } from './investmentMetrics.js'
 
 const contentContainer = document.getElementById('content-container')
 
@@ -625,9 +624,9 @@ function generateInvestmentMetrics(propertyContainer, home){
     cashOnCashTitle.innerHTML = 'Cash On Cash Flow: '
 
     const cashOnCashValue = document.createElement('p')
-    cashOnCashValue.className = 'cash-on-cash-value'
+    cashOnCashValue.className = `cash-on-cash-value ${home['mls']}`
     cashOnCashValue.id = 'cash-on-cash-value'
-    cashOnCashValue.innerHTML = '$$$'
+    cashOnCashValue.innerHTML = `$${0}`
 
     // the following contains the gross operating income
     const grossOperatingIncomeContainer = document.createElement('div')
@@ -640,9 +639,9 @@ function generateInvestmentMetrics(propertyContainer, home){
     grossOperatingIncomeTitle.innerHTML = 'Gross Operating Income: '
 
     const grossOperatingIncomeValue = document.createElement('p')
-    grossOperatingIncomeValue.className = 'gross-operating-income-value'
+    grossOperatingIncomeValue.className = `gross-operating-income-value ${home['mls']}`
     grossOperatingIncomeValue.id = 'gross-operating-income-value'
-    grossOperatingIncomeValue.innerHTML = '$$$'
+    grossOperatingIncomeValue.innerHTML = `$${0}`
 
     // the following contains the net operating income
     const netOperatingIncomeContainer = document.createElement('div')

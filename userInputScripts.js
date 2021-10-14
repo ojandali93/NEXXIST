@@ -2,6 +2,8 @@ import { testHomes } from './setDefaultValues.js'
 import { calculateTotalMortgage } from './calculationScripts.js'
 import { calculateTotalNoMortgage } from './calculationScripts.js'
 import { calculateCashFlow } from './investmentMetrics.js'
+import { calculateCashOnCashFlow } from './investmentMetrics.js'
+import { calculateGrossOperatingIncome } from './investmentMetrics.js'
 
 document.querySelectorAll('.additional-cost-value').forEach(item => {
     item.addEventListener('input', event => {
@@ -22,6 +24,7 @@ function updateTotalMonthly(item, classItem){
                 currentItemMortgage[0].innerHTML = `$${monthlyMortage}`
                 currentItemNoMortgage[0].innerHTML = `$${monthlyNoMortgage}`
                 calculateCashFlow(testHomes[i])
+                calculateCashOnCashFlow(testHomes[i])
             }
         }
     }
@@ -38,6 +41,8 @@ document.querySelectorAll('.rent-input').forEach(item => {
                     let totalRevenue = updateTotalRevenue(testHomes[i])
                     currentTotal[0].innerHTML = `$${totalRevenue}`
                     calculateCashFlow(testHomes[i])
+                    calculateCashOnCashFlow(testHomes[i])
+                    calculateGrossOperatingIncome(testHomes[i])
                 }
             }
         }
@@ -55,6 +60,8 @@ document.querySelectorAll('.revenue-input').forEach(item => {
                     let totalRevenue = updateTotalRevenue(testHomes[i])
                     currentTotal[0].innerHTML = `$${totalRevenue}`
                     calculateCashFlow(testHomes[i])
+                    calculateCashOnCashFlow(testHomes[i])
+                    calculateGrossOperatingIncome(testHomes[i])
                 }
             }
         }
