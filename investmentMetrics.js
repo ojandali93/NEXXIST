@@ -88,7 +88,7 @@ export function calculateVacancyRate(home){
 
 export function calculateCapitalizationRate(home){
     const currentItem = document.getElementsByClassName(`capitalization-rate-value ${home['mls']}`)
-    let noi = 1
+    let noi = 0
     let cost = parseInt(home['price'])
     let capitalizationRate = (noi/cost) * 100
     currentItem[0].innerHTML = `$${capitalizationRate.toFixed(2)}%`
