@@ -5,6 +5,10 @@ import { calculateCashFlow } from './investmentMetrics.js'
 import { calculateCashOnCashFlow } from './investmentMetrics.js'
 import { calculateGrossOperatingIncome } from './investmentMetrics.js'
 import { calculateOperatingExpenseRatio } from './investmentMetrics.js'
+import { calculateNetOperatingExpenses } from './investmentMetrics.js'
+import { calculateRentCostRatio } from './investmentMetrics.js'
+import { calculateGrossRentMultiplier } from './investmentMetrics.js'
+import { calculateReturnOnInvestment } from './investmentMetrics.js'
 
 document.querySelectorAll('.additional-cost-value').forEach(item => {
     item.addEventListener('input', event => {
@@ -27,6 +31,8 @@ function updateTotalMonthly(item, classItem){
                 calculateCashFlow(testHomes[i])
                 calculateCashOnCashFlow(testHomes[i])
                 calculateOperatingExpenseRatio(testHomes[i])
+                calculateNetOperatingExpenses(testHomes[i])
+                calculateReturnOnInvestment(testHomes[i])
             }
         }
     }
@@ -46,6 +52,10 @@ document.querySelectorAll('.rent-input').forEach(item => {
                     calculateCashOnCashFlow(testHomes[i])
                     calculateGrossOperatingIncome(testHomes[i])
                     calculateOperatingExpenseRatio(testHomes[i])
+                    calculateNetOperatingExpenses(testHomes[i])
+                    calculateRentCostRatio(testHomes[i])
+                    calculateGrossRentMultiplier(testHomes[i])
+                    calculateReturnOnInvestment(testHomes[i])
                 }
             }
         }
@@ -66,6 +76,9 @@ document.querySelectorAll('.revenue-input').forEach(item => {
                     calculateCashOnCashFlow(testHomes[i])
                     calculateGrossOperatingIncome(testHomes[i])
                     calculateOperatingExpenseRatio(testHomes[i])
+                    calculateNetOperatingExpenses(testHomes[i])
+                    calculateRentCostRatio(testHomes[i])
+                    calculateReturnOnInvestment(testHomes[i])
                 }
             }
         }

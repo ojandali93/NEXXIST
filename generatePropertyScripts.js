@@ -668,9 +668,9 @@ function generateInvestmentMetrics(propertyContainer, home){
     netOperatingIncomeTitle.innerHTML = 'Net Operating Income: '
 
     const netOperatingIncomeValue = document.createElement('p')
-    netOperatingIncomeValue.className = 'net-operating-income-value'
+    netOperatingIncomeValue.className = `net-operating-income-value ${home['mls']}`
     netOperatingIncomeValue.id = 'net-operating-income-value'
-    netOperatingIncomeValue.innerHTML = '$$$'
+    netOperatingIncomeValue.innerHTML = `$${0}`
 
     // the following contains the net operating income
     const capitalizationRateContainer = document.createElement('div')
@@ -733,9 +733,9 @@ function generateInvestmentMetrics(propertyContainer, home){
     rentCostRatioTitle.innerHTML = 'Rent Cost Ratio: '
 
     const rentCostRatioValue = document.createElement('p')
-    rentCostRatioValue.className = 'rent-cost-ratio-value'
+    rentCostRatioValue.className = `rent-cost-ratio-value ${home['mls']}`
     rentCostRatioValue.id = 'rent-cost-ratio-value'
-    rentCostRatioValue.innerHTML = '$$$'
+    rentCostRatioValue.innerHTML = `%${0}`
 
     // The following are all of the doc containers for the 7 
     // metrics that will be on the left column
@@ -749,9 +749,9 @@ function generateInvestmentMetrics(propertyContainer, home){
     grossRentMultiplierTitle.innerHTML = 'Gross Rent Multiplier: '
 
     const grossRentMultiplierValue = document.createElement('p')
-    grossRentMultiplierValue.className = 'gross-rent-multiplier-value'
+    grossRentMultiplierValue.className = `gross-rent-multiplier-value ${home['mls']}`
     grossRentMultiplierValue.id = 'gross-rent-multiplier-value'
-    grossRentMultiplierValue.innerHTML = '$$$'
+    grossRentMultiplierValue.innerHTML = 0
 
     // the following contains the cash on cash
     const vacancyRateContainer = document.createElement('div')
@@ -779,24 +779,24 @@ function generateInvestmentMetrics(propertyContainer, home){
     depreciationTitle.innerHTML = 'Depreciation: '
 
     const depreciationValue = document.createElement('p')
-    depreciationValue.className = 'depreciation-value'
+    depreciationValue.className = `depreciation-value ${home['mls']}`
     depreciationValue.id = 'depreciation-value'
-    depreciationValue.innerHTML = '$$$'
+    depreciationValue.innerHTML = `$${(home['price']/27.5).toFixed(2)}`
 
     // the following contains the net operating income
-    const marketValue1Container = document.createElement('div')
-    marketValue1Container.className = 'market-value-1-container'
-    marketValue1Container.id = 'market-value-1-container'
+    const returnOnInvestmentContainer = document.createElement('div')
+    returnOnInvestmentContainer.className = 'return-on-investment-container'
+    returnOnInvestmentContainer.id = 'return-on-investment-container'
 
-    const marketValue1Title = document.createElement('p')
-    marketValue1Title.className = 'market-value-1-title'
-    marketValue1Title.id = 'market-value-1-title'
-    marketValue1Title.innerHTML = 'Market Value (1 year): '
+    const returnOnInvestmentTitle = document.createElement('p')
+    returnOnInvestmentTitle.className = 'return-on-investment-title'
+    returnOnInvestmentTitle.id = 'return-on-investment-title'
+    returnOnInvestmentTitle.innerHTML = 'Return On Inv. (Annual): '
 
-    const marketValue1Value = document.createElement('p')
-    marketValue1Value.className = 'market-value-1-value'
-    marketValue1Value.id = 'market-value-1-value'
-    marketValue1Value.innerHTML = '$$$'
+    const returnOnInvestmentValue = document.createElement('p')
+    returnOnInvestmentValue.className = `return-on-investment-value ${home['mls']}`
+    returnOnInvestmentValue.id = 'return-on-investment-value'
+    returnOnInvestmentValue.innerHTML = `%${0}`
 
     // the following contains the net operating income
     const marketValue2Container = document.createElement('div')
@@ -890,9 +890,9 @@ function generateInvestmentMetrics(propertyContainer, home){
     depreciationContainer.appendChild(depreciationTitle)
     depreciationContainer.appendChild(depreciationValue)
 
-    metricsRightContainer.appendChild(marketValue2Container)
-    marketValue2Container.appendChild(marketValue2Title)
-    marketValue2Container.appendChild(marketValue2Value)
+    metricsRightContainer.appendChild(returnOnInvestmentContainer)
+    returnOnInvestmentContainer.appendChild(returnOnInvestmentTitle)
+    returnOnInvestmentContainer.appendChild(returnOnInvestmentValue)
 
     // metricsRightContainer.appendChild(airbnbContainer)
     // airbnbContainer.appendChild(airbnbTitle)
