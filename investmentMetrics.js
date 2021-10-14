@@ -46,6 +46,7 @@ export function calculateNetOperatingExpenses(home){
     let operatingExpensesNoMortgage = home['monthly_no_mortgage']
     let netOperatingIncome = goi - (operatingExpensesNoMortgage * 12)
     currentItem[0].innerHTML = `$${netOperatingIncome.toFixed(2)}`
+    return netOperatingIncome
 }
 
 export function calculateRentCostRatio(home){
@@ -83,4 +84,12 @@ export function calculateVacancyRate(home){
     let vaccancyRate = .94 
     let annualRate = (rent * vaccancyRate) / vacancyRateDays
     currentItem[0].innerHTML = `$${annualRate.toFixed(2)}/Day`
+}
+
+export function calculateCapitalizationRate(home){
+    const currentItem = document.getElementsByClassName(`capitalization-rate-value ${home['mls']}`)
+    let noi = 1
+    let cost = parseInt(home['price'])
+    let capitalizationRate = (noi/cost) * 100
+    currentItem[0].innerHTML = `$${capitalizationRate.toFixed(2)}%`
 }

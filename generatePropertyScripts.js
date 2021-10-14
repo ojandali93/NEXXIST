@@ -683,9 +683,9 @@ function generateInvestmentMetrics(propertyContainer, home){
     capitalizationRateTitle.innerHTML = 'Capitalization Rate: '
 
     const capitalizationRateValue = document.createElement('p')
-    capitalizationRateValue.className = 'capitalization-rate-value'
+    capitalizationRateValue.className = `capitalization-rate-value ${home['mls']}`
     capitalizationRateValue.id = 'capitalization-rate-value'
-    capitalizationRateValue.innerHTML = '$$$'
+    capitalizationRateValue.innerHTML = 0
 
     // the following contains the net operating income
     const internalRateRevenueContainer = document.createElement('div')
@@ -700,7 +700,7 @@ function generateInvestmentMetrics(propertyContainer, home){
     const internalRateRevenueValue = document.createElement('p')
     internalRateRevenueValue.className = 'internal-rate-return-value'
     internalRateRevenueValue.id = 'internal-rate-return-value'
-    internalRateRevenueValue.innerHTML = '$$$'
+    internalRateRevenueValue.innerHTML = `$${0}`
 
     // the following contains the net operating income
     const investmentScoreContainer = document.createElement('div')
