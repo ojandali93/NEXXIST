@@ -27,7 +27,7 @@ The header section will allow the users to complete a variety of tasks including
     -input a search of address, zip-code, and city to get all the properties in a specific area
     -create a profile and save your searches as well as favorites
 
-<img style="{ height: 600px; }" src="./images/s-h-header.png">
+<img style="{ height: 600px; }" src="./images/s-h-property.png">
 
 The main portion of Nexxist consist of the property card which you can see above. This will take data from Zillow and for each property, generate a block. This block will hold property details, general information, and calculate investment metrics that are key to finding the perfect real estate investment opportunity.
 
