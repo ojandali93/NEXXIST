@@ -1,7 +1,8 @@
 function generatePrice(){
     let price = Math.round(Math.random() * (550 - 150) + 150)
-    let finalPrice = price * 1000
+    // let finalPrice = price * 1000
     // console.log(finalPrice)
+    let finalPrice = 850000
     return finalPrice
 }
 
@@ -51,19 +52,19 @@ function generateMls(){
 }
 
 function generatePropertyTax(){
-    let propTax = Math.round(Math.random() * (750 - 500))
+    let propTax = 489
     // console.log(propTax)
     return propTax
 }
 
 function generateHomeInsurance(){
-    let homeInsurance = Math.round(Math.random() * (500 - 250))
+    let homeInsurance = 298
     // console.log(homeInsurance)
     return homeInsurance
 }
 
 function generateHOA(){
-    let hoa = Math.round(Math.random() * (150 - 0))
+    let hoa = 394
     // console.log(hoa)
     return hoa
 }
